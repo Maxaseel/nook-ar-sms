@@ -141,16 +141,16 @@ class ChatConversationAdapter(
 
         return when {
             todayStr == messageStr -> {
-                SimpleDateFormat("HH:mm", Locale.getDefault()).format(date)
+                ChatDateTimeFormatter.formatTime(date)
             }
             isYesterday(date) -> {
-                "Ieri " + SimpleDateFormat("HH:mm", Locale.getDefault()).format(date)
+                "أمس " + ChatDateTimeFormatter.formatTime(date)
             }
             isThisYear(date) -> {
-                SimpleDateFormat("dd/MM HH:mm", Locale.getDefault()).format(date)
+                ChatDateTimeFormatter.formatDateTime(date)
             }
             else -> {
-                SimpleDateFormat("dd/MM/yy HH:mm", Locale.getDefault()).format(date)
+                ChatDateTimeFormatter.formatDateTime(date, includeYear = true)
             }
         }
     }

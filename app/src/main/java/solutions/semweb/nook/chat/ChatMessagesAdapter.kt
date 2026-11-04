@@ -19,10 +19,7 @@ import solutions.semweb.nook.ChatMessage
 import solutions.semweb.nook.Constants
 import solutions.semweb.nook.R
 import solutions.semweb.nook.SharedPreferencesManager
-import java.text.SimpleDateFormat
-import java.util.Calendar
 import java.util.Date
-import java.util.Locale
 import java.util.regex.Pattern
 
 class ChatMessagesAdapter(
@@ -658,29 +655,11 @@ class ChatMessagesAdapter(
     }
 
     private fun formatTimestamp(timestamp: Long): String {
-        val messageDate = Date(timestamp)
-        val today = Calendar.getInstance()
-        val messageCalendar = Calendar.getInstance().apply { time = messageDate }
-
-        val isToday = today.get(Calendar.YEAR) == messageCalendar.get(Calendar.YEAR) &&
-                today.get(Calendar.DAY_OF_YEAR) == messageCalendar.get(Calendar.DAY_OF_YEAR)
-
-        return if (isToday) {
-            SimpleDateFormat("HH:mm", Locale.getDefault()).format(messageDate)
-        } else {
-            SimpleDateFormat("dd/MM HH:mm", Locale.getDefault()).format(messageDate)
-        }
+        return ChatDateTimeFormatter.formatTime(Date(timestamp))
     }
 
     private fun formatShortTime(timestamp: Long): String {
         val date = Date(timestamp)
-        val now = Date()
-        val diff = now.time - date.time
-
-        return if (diff < 24 * 60 * 60 * 1000) {
-            SimpleDateFormat("HH:mm", Locale.getDefault()).format(date)
-        } else {
-            SimpleDateFormat("dd/MM HH:mm", Locale.getDefault()).format(date)
-        }
+        return ChatDateTimeFormatter.formatTime(date)
     }
 }
