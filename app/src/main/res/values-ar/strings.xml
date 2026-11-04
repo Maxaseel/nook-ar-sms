@@ -885,4 +885,6 @@ C) الحافظة، التي تشارك النصوص مع التطبيق الح�
     <string name="app_protection_method_biometric">بصمة الإصبع مع كلمة مرور احتياطية</string>
     <string name="app_protection_method_hint">يتطلب النمط والبصمة كلمة مرور احتياطية. لا يظهر خيار البصمة إلا إذا كانت مُعدّة في إعدادات الجهاز.</string>
     <string name="app_protection_password_backup">عيّن كلمة مرور احتياطية لطريقة الحماية المحددة.</string>
+    <string name="app_protection_change_method">تغيير طريقة القفل</string>
+    <string name="app_protection_change_method_current">طريقة القفل الحالية: %1$s — تغيير</string>
 </resources>

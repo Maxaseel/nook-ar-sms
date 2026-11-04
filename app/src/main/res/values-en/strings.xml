@@ -594,4 +594,6 @@
     <string name="app_protection_method_biometric">Fingerprint with password backup</string>
     <string name="app_protection_method_hint">Pattern and fingerprint require a recovery password. Fingerprint appears only when set up in device settings.</string>
     <string name="app_protection_password_backup">Set a recovery password for the selected method.</string>
+    <string name="app_protection_change_method">Change lock method</string>
+    <string name="app_protection_change_method_current">Current lock method: %1$s — change</string>
 </resources>

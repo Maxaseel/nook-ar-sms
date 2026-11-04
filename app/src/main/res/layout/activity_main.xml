@@ -407,6 +407,14 @@
                     </LinearLayout>
 
                     <Button
+                        android:id="@+id/change_protection_method_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="@string/app_protection_change_method"
+                        android:textAllCaps="false"
+                        android:visibility="gone"/>
+                    <Button
                         android:id="@+id/pattern_setup_button"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
