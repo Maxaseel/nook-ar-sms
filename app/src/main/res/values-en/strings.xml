@@ -596,4 +596,13 @@
     <string name="app_protection_password_backup">Set a recovery password for the selected method.</string>
     <string name="app_protection_change_method">Change lock method</string>
     <string name="app_protection_change_method_current">Current lock method: %1$s — change</string>
+    <string name="app_protection_timeout_title">App relock delay</string>
+    <string name="app_protection_timeout_current">Relock after: %1$s</string>
+    <string name="app_protection_timeout_15_seconds">15 seconds</string>
+    <string name="app_protection_timeout_30_seconds">30 seconds</string>
+    <string name="app_protection_timeout_1_minute">1 minute</string>
+    <string name="app_protection_timeout_2_minutes">2 minutes</string>
+    <string name="app_protection_timeout_5_minutes">5 minutes</string>
+    <string name="app_protection_timeout_10_minutes">10 minutes</string>
+    <string name="app_protection_timeout_custom">%1$d seconds</string>
 </resources>

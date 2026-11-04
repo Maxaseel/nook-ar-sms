@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/background_main2"
     android:paddingTop="30dp"
     android:paddingBottom="30dp"
     android:padding="4dp">
@@ -412,6 +414,14 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
                         android:text="@string/app_protection_change_method"
+                        android:textAllCaps="false"
+                        android:visibility="gone"/>
+                    <Button
+                        android:id="@+id/app_protection_timeout_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="@string/app_protection_timeout_current"
                         android:textAllCaps="false"
                         android:visibility="gone"/>
                     <Button

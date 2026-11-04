@@ -887,4 +887,13 @@ C) الحافظة، التي تشارك النصوص مع التطبيق الح�
     <string name="app_protection_password_backup">عيّن كلمة مرور احتياطية لطريقة الحماية المحددة.</string>
     <string name="app_protection_change_method">تغيير طريقة القفل</string>
     <string name="app_protection_change_method_current">طريقة القفل الحالية: %1$s — تغيير</string>
+    <string name="app_protection_timeout_title">مهلة إعادة قفل التطبيق</string>
+    <string name="app_protection_timeout_current">إعادة القفل بعد: %1$s</string>
+    <string name="app_protection_timeout_15_seconds">15 ثانية</string>
+    <string name="app_protection_timeout_30_seconds">30 ثانية</string>
+    <string name="app_protection_timeout_1_minute">دقيقة واحدة</string>
+    <string name="app_protection_timeout_2_minutes">دقيقتان</string>
+    <string name="app_protection_timeout_5_minutes">5 دقائق</string>
+    <string name="app_protection_timeout_10_minutes">10 دقائق</string>
+    <string name="app_protection_timeout_custom">%1$d ثانية</string>
 </resources>
