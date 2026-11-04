@@ -590,4 +590,10 @@
 🔴 Rote Leisten aktiviert</string>
     <string name="sms_loopback_disabled_message">📱 SMS-Loopback INAKTIV – Normaler SMS-Versand
 ⚫ Normale Leisten wiederhergestellt</string>
+    <string name="app_protection_method_title">Schutzmethode auswählen</string>
+    <string name="app_protection_method_password">Nur Passwort</string>
+    <string name="app_protection_method_pattern">Muster mit Passwort-Backup</string>
+    <string name="app_protection_method_biometric">Fingerabdruck mit Passwort-Backup</string>
+    <string name="app_protection_method_hint">Muster und Fingerabdruck benötigen ein Wiederherstellungspasswort. Fingerabdruck wird nur angezeigt, wenn er in den Geräteeinstellungen eingerichtet ist.</string>
+    <string name="app_protection_password_backup">Lege ein Wiederherstellungspasswort für die gewählte Methode fest.</string>
 </resources>

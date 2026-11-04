@@ -582,4 +582,10 @@
 🔴 Barres rouges activées</string>
     <string name="sms_loopback_disabled_message">📱 SMS Loopback INACTIF – Envoi SMS normal
 ⚫ Barres normales restaurées</string>
+    <string name="app_protection_method_title">Choisir une méthode de protection</string>
+    <string name="app_protection_method_password">Mot de passe uniquement</string>
+    <string name="app_protection_method_pattern">Schéma avec mot de passe de secours</string>
+    <string name="app_protection_method_biometric">Empreinte avec mot de passe de secours</string>
+    <string name="app_protection_method_hint">Le schéma et l’empreinte nécessitent un mot de passe de secours. L’empreinte n’apparaît que si elle est configurée dans les paramètres de l’appareil.</string>
+    <string name="app_protection_password_backup">Définissez un mot de passe de secours pour la méthode choisie.</string>
 </resources>

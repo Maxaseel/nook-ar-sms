@@ -100,6 +100,10 @@ class SharedPreferencesManager private constructor(private var context: Context)
         get() = prefs.getString("app_protection_pattern", "") ?: ""
         set(value) = prefs.edit().putString("app_protection_pattern", value).apply()
 
+    var appProtectionMethod: String
+        get() = prefs.getString("app_protection_method", "password") ?: "password"
+        set(value) = prefs.edit().putString("app_protection_method", value).apply()
+
     // App Protection Timeout
     var appProtectionTimeout: Int
         get() = prefs.getInt(Constants.KEY_APP_PROTECTION_TIMEOUT, Constants.DEFAULT_PROTECTION_TIMEOUT)

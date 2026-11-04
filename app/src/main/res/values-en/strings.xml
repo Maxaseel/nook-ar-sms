@@ -588,4 +588,10 @@
 🔴 Red bars enabled</string>
     <string name="sms_loopback_disabled_message">📱 SMS Loopback INACTIVE - Normal SMS sending
 ⚫ Normal bars restored</string>
+    <string name="app_protection_method_title">Choose a protection method</string>
+    <string name="app_protection_method_password">Password only</string>
+    <string name="app_protection_method_pattern">Pattern with password backup</string>
+    <string name="app_protection_method_biometric">Fingerprint with password backup</string>
+    <string name="app_protection_method_hint">Pattern and fingerprint require a recovery password. Fingerprint appears only when set up in device settings.</string>
+    <string name="app_protection_password_backup">Set a recovery password for the selected method.</string>
 </resources>

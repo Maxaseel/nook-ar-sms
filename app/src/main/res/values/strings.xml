@@ -625,4 +625,10 @@
 🔴 Barre rosse attivate</string>
     <string name="sms_loopback_disabled_message">📱 SMS Loopback DISATTIVO - Invio SMS normale
 ⚫ Barre normali ripristinate</string>
+    <string name="app_protection_method_title">Scegli il metodo di protezione</string>
+    <string name="app_protection_method_password">Solo password</string>
+    <string name="app_protection_method_pattern">Sequenza e password di recupero</string>
+    <string name="app_protection_method_biometric">Impronta digitale e password di recupero</string>
+    <string name="app_protection_method_hint">Il pattern e l’impronta richiedono una password di recupero. L’impronta appare solo se configurata nelle impostazioni del dispositivo.</string>
+    <string name="app_protection_password_backup">Imposta una password di recupero per il metodo selezionato.</string>
 </resources>

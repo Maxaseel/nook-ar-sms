@@ -168,6 +168,9 @@ class MainActivity : AppCompatActivity(), MainActivitySoundPicker {
         private const val PERMISSION_REQUEST_SMS = 100
         private const val PERMISSION_REQUEST_CONTACTS = 101
         private const val PERMISSION_REQUEST_NOTIFICATIONS = 104
+        private const val PROTECTION_METHOD_PASSWORD = "password"
+        private const val PROTECTION_METHOD_PATTERN = "pattern"
+        private const val PROTECTION_METHOD_BIOMETRIC = "biometric"
 
         // ✅ Usa WeakReference invece di riferimento diretto
         private var weakInstance: WeakReference<MainActivity>? = null
@@ -1972,7 +1975,12 @@ class MainActivity : AppCompatActivity(), MainActivitySoundPicker {
         val simplyExitButton = dialogView.findViewById<Button>(R.id.simply_exit_button)
 
         titleText.text = getString(R.string.app_protection_dialog_title)
-        messageText.text = getString(R.string.app_protection_dialog_message)
+        messageText.text = getString(
+            if (prefs.appProtectionMethod == PROTECTION_METHOD_PASSWORD)
+                R.string.app_protection_dialog_message
+            else
+                R.string.app_protection_password_backup
+        )
         confirmLabel.visibility = View.VISIBLE
         confirmLabel.text = getString(R.string.app_protection_confirm_dialog_message)
         confirmPasswordInput.visibility = View.VISIBLE
@@ -2024,6 +2032,7 @@ class MainActivity : AppCompatActivity(), MainActivitySoundPicker {
                 val encryptedPassword = CryptoManager.encryptSimplePassword(this, password)
                 prefs.appProtectionPassword = encryptedPassword
                 prefs.appProtectionEnabled = true
+                syncAppProtectionToggle()
 
                 // ALWAYS show success Toast when SET is clicked (whether from toggle or app title)
                 showToast(getString(R.string.app_protection_set_success))
@@ -2036,6 +2045,9 @@ class MainActivity : AppCompatActivity(), MainActivitySoundPicker {
             }
 
             dialog.dismiss()
+            if (prefs.appProtectionMethod == PROTECTION_METHOD_PATTERN && this::patternSetupButton.isInitialized) {
+                patternSetupButton.postDelayed({ showSetAppProtectionPatternDialog() }, 300)
+            }
         }
     }
 
@@ -2082,6 +2094,12 @@ class MainActivity : AppCompatActivity(), MainActivitySoundPicker {
             .setPositiveButton(getString(R.string.set), null)
             .setNegativeButton(getString(R.string.cancel), null)
             .create()
+        dialog.setOnDismissListener {
+            if (prefs.appProtectionMethod == PROTECTION_METHOD_PATTERN && prefs.appProtectionPattern.isEmpty()) {
+                prefs.appProtectionMethod = PROTECTION_METHOD_PASSWORD
+                updatePatternSetupButtonVisibility()
+            }
+        }
         dialog.setOnShowListener {
             dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
                 val pattern = currentPattern
@@ -2119,6 +2137,7 @@ class MainActivity : AppCompatActivity(), MainActivitySoundPicker {
         prefs.appProtectionEnabled = false
         prefs.appProtectionPassword = ""
         prefs.appProtectionPattern = ""
+        prefs.appProtectionMethod = PROTECTION_METHOD_PASSWORD
         if (this::patternSetupButton.isInitialized) patternSetupButton.visibility = View.GONE
         showToast(getString(R.string.app_protection_disabled))
         LogUtils.e("MAIN", "✅ APP protection disabled")
@@ -2142,6 +2161,26 @@ class MainActivity : AppCompatActivity(), MainActivitySoundPicker {
         val fingerprintButton = dialogView.findViewById<Button>(R.id.fingerprint_unlock_button)
         val patternView = dialogView.findViewById<PatternLockView>(R.id.unlock_pattern_view)
         val messageText = dialogView.findViewById<TextView>(R.id.message_text)
+        val hasSavedPattern = prefs.appProtectionPattern.isNotEmpty()
+        val patternIsPrimary = prefs.appProtectionMethod == PROTECTION_METHOD_PATTERN && hasSavedPattern
+        val biometricIsPrimary = prefs.appProtectionMethod == PROTECTION_METHOD_BIOMETRIC &&
+            BiometricManager.from(this).canAuthenticate(BiometricManager.Authenticators.BIOMETRIC_WEAK) ==
+            BiometricManager.BIOMETRIC_SUCCESS
+
+        if (patternIsPrimary) {
+            passwordCard.visibility = View.GONE
+            unlockButton.visibility = View.GONE
+            patternView.visibility = View.VISIBLE
+            patternButton.visibility = View.VISIBLE
+            patternButton.text = getString(R.string.password_unlock_button)
+            messageText.text = getString(R.string.pattern_lock_description)
+        } else if (biometricIsPrimary) {
+            passwordCard.visibility = View.GONE
+            unlockButton.visibility = View.GONE
+            fingerprintButton.visibility = View.VISIBLE
+            patternButton.visibility = View.VISIBLE
+            patternButton.text = getString(R.string.password_unlock_button)
+        }
 
         passwordInput.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_DONE || actionId == EditorInfo.IME_ACTION_GO) {
@@ -2155,15 +2194,15 @@ class MainActivity : AppCompatActivity(), MainActivitySoundPicker {
         dialog.setCancelable(false)
         dialog.show()
 
-        if (prefs.appProtectionPattern.isNotEmpty()) {
-            patternButton.visibility = View.VISIBLE
+        if (hasSavedPattern && prefs.appProtectionMethod == PROTECTION_METHOD_PATTERN) {
+            if (!patternIsPrimary) patternButton.visibility = View.VISIBLE
             patternButton.setOnClickListener {
-                val showPattern = patternView.visibility != View.VISIBLE
-                patternView.visibility = if (showPattern) View.VISIBLE else View.GONE
-                passwordCard.visibility = if (showPattern) View.GONE else View.VISIBLE
-                unlockButton.visibility = if (showPattern) View.GONE else View.VISIBLE
-                patternButton.text = getString(if (showPattern) R.string.password_unlock_button else R.string.pattern_unlock_button)
-                messageText.text = getString(if (showPattern) R.string.pattern_lock_description else R.string.app_protection_enter_password)
+                val showPrimary = patternView.visibility != View.VISIBLE
+                patternView.visibility = if (showPrimary) View.VISIBLE else View.GONE
+                passwordCard.visibility = if (showPrimary) View.GONE else View.VISIBLE
+                unlockButton.visibility = if (showPrimary) View.GONE else View.VISIBLE
+                patternButton.text = getString(if (showPrimary) R.string.password_unlock_button else R.string.pattern_unlock_button)
+                messageText.text = getString(if (showPrimary) R.string.pattern_lock_description else R.string.app_protection_enter_password)
             }
             patternView.onPatternCompleted = { pattern ->
                 try {
@@ -2182,9 +2221,16 @@ class MainActivity : AppCompatActivity(), MainActivitySoundPicker {
             }
         }
 
-        if (BiometricManager.from(this).canAuthenticate(BiometricManager.Authenticators.BIOMETRIC_WEAK) == BiometricManager.BIOMETRIC_SUCCESS) {
-            fingerprintButton.visibility = View.VISIBLE
+        if (biometricIsPrimary) {
             fingerprintButton.setOnClickListener { showBiometricPrompt(dialog) }
+            patternButton.setOnClickListener {
+                val showPassword = passwordCard.visibility != View.VISIBLE
+                passwordCard.visibility = if (showPassword) View.VISIBLE else View.GONE
+                unlockButton.visibility = if (showPassword) View.VISIBLE else View.GONE
+                fingerprintButton.visibility = if (showPassword) View.GONE else View.VISIBLE
+                patternButton.text = getString(if (showPassword) R.string.fingerprint_unlock_button else R.string.password_unlock_button)
+                messageText.text = getString(if (showPassword) R.string.app_protection_enter_password else R.string.fingerprint_prompt_subtitle)
+            }
         }
 
         exitButton.setOnClickListener {
@@ -2322,24 +2368,67 @@ class MainActivity : AppCompatActivity(), MainActivitySoundPicker {
             patternSetupButton = findViewById(R.id.pattern_setup_button)
 
             appProtectionToggle.isChecked = prefs.appProtectionEnabled
-            patternSetupButton.visibility = if (prefs.appProtectionEnabled) View.VISIBLE else View.GONE
+            updatePatternSetupButtonVisibility()
             patternSetupButton.setOnClickListener { showSetAppProtectionPatternDialog() }
-
-            appProtectionToggle.setOnCheckedChangeListener { _, isChecked ->
-                if (isChecked) {
-                    patternSetupButton.visibility = View.VISIBLE
-                    // Normal flow from toggle - show toast
-                    showSetAppProtectionPasswordDialog()
-                } else {
-                    patternSetupButton.visibility = View.GONE
-                    removeAppProtection()
-                }
-            }
+            bindAppProtectionToggleListener()
 
             LogUtils.e("MAIN", "✅ App protection toggle initialised: ${prefs.appProtectionEnabled}")
         } catch (e: Exception) {
             LogUtils.e("MAIN", "❌ Error setup app protection toggle", e)
         }
+    }
+
+    private fun bindAppProtectionToggleListener() {
+        appProtectionToggle.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                showProtectionMethodChooser()
+            } else {
+                patternSetupButton.visibility = View.GONE
+                removeAppProtection()
+            }
+        }
+    }
+
+    private fun syncAppProtectionToggle() {
+        if (!this::appProtectionToggle.isInitialized) return
+        appProtectionToggle.setOnCheckedChangeListener(null)
+        appProtectionToggle.isChecked = prefs.appProtectionEnabled
+        updatePatternSetupButtonVisibility()
+        bindAppProtectionToggleListener()
+    }
+
+    private fun updatePatternSetupButtonVisibility() {
+        if (!this::patternSetupButton.isInitialized) return
+        patternSetupButton.visibility = if (
+            prefs.appProtectionEnabled && prefs.appProtectionMethod == PROTECTION_METHOD_PATTERN
+        ) View.VISIBLE else View.GONE
+    }
+
+    private fun showProtectionMethodChooser() {
+        val biometricAvailable = BiometricManager.from(this).canAuthenticate(
+            BiometricManager.Authenticators.BIOMETRIC_WEAK
+        ) == BiometricManager.BIOMETRIC_SUCCESS
+        val methods = mutableListOf(
+            PROTECTION_METHOD_PASSWORD to getString(R.string.app_protection_method_password),
+            PROTECTION_METHOD_PATTERN to getString(R.string.app_protection_method_pattern)
+        )
+        if (biometricAvailable) {
+            methods.add(PROTECTION_METHOD_BIOMETRIC to getString(R.string.app_protection_method_biometric))
+        }
+        AlertDialog.Builder(this)
+            .setTitle(getString(R.string.app_protection_method_title))
+            .setMessage(getString(R.string.app_protection_method_hint))
+            .setItems(methods.map { it.second }.toTypedArray()) { _, which ->
+                prefs.appProtectionMethod = methods[which].first
+                showSetAppProtectionPasswordDialog()
+            }
+            .setNegativeButton(getString(R.string.cancel)) { _, _ ->
+                if (!prefs.appProtectionEnabled) appProtectionToggle.isChecked = false
+            }
+            .setOnCancelListener {
+                if (!prefs.appProtectionEnabled) appProtectionToggle.isChecked = false
+            }
+            .show()
     }
 
     /**
@@ -2367,8 +2456,7 @@ class MainActivity : AppCompatActivity(), MainActivitySoundPicker {
             // Case 2: App lock is disabled - enable it and show setup dialog WITH silent mode
             LogUtils.e(TAG, "🔒 App lock disabled - enabling and showing setup (silent mode)")
 
-            // Pass true for silentMode (no toast)
-            showSetAppProtectionPasswordDialog()
+            showProtectionMethodChooser()
         }
     }
 

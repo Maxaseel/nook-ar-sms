@@ -879,4 +879,10 @@ C) الحافظة، التي تشارك النصوص مع التطبيق الح�
 🔴 تم تفعيل المؤشرات الحمراء</string>
     <string name="sms_loopback_disabled_message">📱 وضع محاكاة SMS معطّل؛ الإرسال العادي عبر SMS
 ⚫ تمت استعادة ألوان المؤشرات</string>
+    <string name="app_protection_method_title">اختر طريقة حماية التطبيق</string>
+    <string name="app_protection_method_password">كلمة المرور فقط</string>
+    <string name="app_protection_method_pattern">النمط مع كلمة مرور احتياطية</string>
+    <string name="app_protection_method_biometric">بصمة الإصبع مع كلمة مرور احتياطية</string>
+    <string name="app_protection_method_hint">يتطلب النمط والبصمة كلمة مرور احتياطية. لا يظهر خيار البصمة إلا إذا كانت مُعدّة في إعدادات الجهاز.</string>
+    <string name="app_protection_password_backup">عيّن كلمة مرور احتياطية لطريقة الحماية المحددة.</string>
 </resources>
