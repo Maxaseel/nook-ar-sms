@@ -8,7 +8,7 @@ object Constants {
     const val VERSION_MAJOR = 1
     const val VERSION_MINOR = 7
     const val VERSION_PATCH = 9 // App lock screen, timeout and navigation improvements
-    const val VERSION_CODE = 299
+    const val VERSION_CODE = 300
 
     const val FILE_PICKER_REQUEST_CODE = 3001
 
