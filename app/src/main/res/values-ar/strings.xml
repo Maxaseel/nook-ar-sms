@@ -62,7 +62,7 @@
 📋 موجودة مسبقًا: %6$d</string>
     <string name="alert_scan_result_title">ℹ️ النتائج</string>
     <string name="all_contacts_already_in_chat">كل جهات الاتصال موجودة بالفعل في المحادثة!</string>
-    <string name="all_contacts_info">⚠️ فك/تشفير SMS لأي جهة اتصال</string>
+    <string name="all_contacts_info">⚠️ تشفير رسائل SMS لأي جهة اتصال وفك تشفيرها</string>
     <string name="all_contacts_mode_active">✅ وضع «الكل» مفعّل: فك التشفير من أي رقم</string>
     <string name="all_contacts_removed">✅ أُزيلت كل جهات الاتصال</string>
     <string name="all_decisions_cleared">مُسحت كل القرارات</string>
@@ -84,14 +84,14 @@
     <string name="app_protection_dialog_message">أدخل كلمة مرور من 6 أحرف لحماية الوصول إلى التطبيق:</string>
     <string name="app_protection_dialog_title">تعيين كلمة مرور الحماية</string>
     <string name="app_protection_disabled">أُزيلت حماية التطبيق</string>
-    <string name="app_protection_enter_password">أدخل كلمة مرور إلغاء القفل</string>
+    <string name="app_protection_enter_password">أدخل كلمة مرور الحماية</string>
     <string name="app_protection_lock">NooK - الحماية</string>
     <string name="app_protection_password_too_short">يجب أن تتكون كلمة المرور من 6 أحرف على الأقل</string>
     <string name="app_protection_passwords_not_match">كلمتا المرور غير متطابقتين</string>
     <string name="app_protection_set_success">تم تعيين كلمة مرور الحماية</string>
     <string name="app_protection_title">افتح قفل التطبيق بكلمة المرور</string>
-    <string name="app_protection_title4toggle">حماية التطبيق بكلمة مرور</string>
-    <string name="app_title">NooK - مراسل آمن</string>
+    <string name="app_protection_title4toggle">قفل التطبيق أو إلغاء قفله</string>
+    <string name="app_title">NooK - تطبيق مراسلة آمن</string>
     <string name="app_verified">تم التحقق من التطبيق</string>
     <string name="app_verified_offline">تم التحقق من التطبيق دون اتصال</string>
     <string name="appbar_scrolling_view_behavior">com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior</string>
@@ -117,7 +117,7 @@
     <string name="bottomsheet_action_expand_halfway">التوسيع حتى المنتصف</string>
     <string name="bottomsheet_drag_handle_clicked">تم النقر المزدوج على مقبض السحب</string>
     <string name="bottomsheet_drag_handle_content_description">مقبض السحب</string>
-    <string name="browse_files">العثور على محادثة مُصدّرة</string>
+    <string name="browse_files">العثور على ملف تصدير المحادثة</string>
     <string name="button_import">استيراد محادثة</string>
     <string name="call_notification_answer_action">رد</string>
     <string name="call_notification_answer_video_action">فيديو</string>
@@ -262,7 +262,7 @@ SMS: لإرسال واستقبال الرسائل المشفرة.
 
 جهات الاتصال: لاختيار المستلمين واستخدام أرقام هواتفهم لإنشاء محادثات مشفرة.
 
-الهاتف (قراءة حالة الهاتف): (حتى Android 16) لتحديد رقم هاتفك ضمن عملية التشفير.
+الهاتف (قراءة حالة الهاتف): في إصدارات Android الأقدم من 16، لتحديد رقم هاتفك ضمن عملية التشفير.
 
 الموقع: فقط عند الضغط على زر 📍 لإرسال موقعك إلى شريكك.
 
@@ -346,7 +346,7 @@ C) الحافظة، التي تشارك النصوص مع التطبيق الح�
     <string name="errorscaningfor">خطأ أثناء الفحص لـ %1$s: %2$s</string>
     <string name="errorwhilechatdeleting">خطأ أثناء حذف المحادثة</string>
     <string name="exit">خروج</string>
-    <string name="export_encrypted_chat">📤 تصدير المحادثة</string>
+    <string name="export_encrypted_chat">📤 تصدير المحادثة وحمايتها</string>
     <string name="export_failed">خطأ أثناء تصدير المحادثة</string>
     <string name="export_no_messages">لا توجد رسائل للتصدير</string>
     <string name="export_pw_procedi">متابعة</string>
@@ -381,7 +381,7 @@ C) الحافظة، التي تشارك النصوص مع التطبيق الح�
     <string name="import_decompression_failed">فشل فك ضغط ZIP</string>
     <string name="import_encrypted_chat">📥 استيراد محادثة</string>
     <string name="import_error_temp_folder">خطأ في إنشاء المجلد المؤقت</string>
-    <string name="import_explanation">مهم: لإعادة قراءة/فك ترميز رسائل SMS المشفرة أو المرمزة المفقودة من المحادثة على نحو صحيح، يجب ألا تكون معلمات التشفير والترميز في NooK قد تغيرت</string>
+    <string name="import_explanation">مهم: لإعادة قراءة/إعادة ترميز رسائل SMS المشفّرة أو المرمّزة المفقودة من المحادثة على نحو صحيح، يجب ألا تكون معلمات التشفير والترميز في NooK قد تغيّرت</string>
     <string name="import_failed">فشل الاستيراد</string>
     <string name="import_file_path_error">خطأ في مسار الملف</string>
     <string name="import_invalid_file_format">تنسيق الملف غير مدعوم. استخدم ‎.nook أو ‎.zip</string>
@@ -594,7 +594,7 @@ C) الحافظة، التي تشارك النصوص مع التطبيق الح�
     <string name="mtrl_timepicker_cancel">إلغاء</string>
     <string name="mtrl_timepicker_confirm">موافق</string>
     <string name="new_message_from">رسالة جديدة من: %s</string>
-    <string name="new_version_available">حدّثني</string>
+    <string name="new_version_available">تحديث التطبيق</string>
     <string name="no">لا</string>
     <string name="no_more_messages">(لا توجد رسائل أقدم)</string>
     <string name="no_more_messages_to_load">تم عرض جميع الرسائل</string>
@@ -625,7 +625,7 @@ C) الحافظة، التي تشارك النصوص مع التطبيق الح�
     <string name="password">كلمة المرور</string>
     <string name="password_for_import_must_have_16">يجب أن تتكون كلمة المرور من 16 حرفًا على الأقل</string>
     <string name="password_hint">كلمة المرور</string>
-    <string name="password_info_text">ستُستخدم كلمة مرور العلاقة لإنشاء مفاتيح DH لدعم اتصال مشفّر بـ AES-256. شاركها بطريقة آمنة</string>
+    <string name="password_info_text">ستُستخدم كلمة مرور التشفير لإنشاء مفاتيح DH لدعم اتصال مشفّر بـ AES-256. شاركها بطريقة آمنة</string>
     <string name="password_relationship_hint">اتركه فارغًا للإنشاء التلقائي</string>
     <string name="password_toggle_content_description">إظهار كلمة المرور</string>
     <string name="paste">لصق</string>
@@ -685,7 +685,7 @@ C) الحافظة، التي تشارك النصوص مع التطبيق الح�
     <string name="remove_keyboard_message">هل تريد إزالة لوحة المفاتيح «%s» من القوائم؟</string>
     <string name="remove_keyboard_question">إزالة لوحة المفاتيح؟</string>
     <string name="removed_default_keyboards">أُزيلت القائمة السوداء للوحات المفاتيح</string>
-    <string name="remporary_ignored_by_user">تجاهلها المستخدم مؤقتًا في %s</string>
+    <string name="remporary_ignored_by_user">تم تجاهله مؤقتًا في %s</string>
     <string name="request_receipts">طلب تأكيدات فك التشفير</string>
     <string name="request_receipts_description">اسأل المرسل عما إذا كان قد فك تشفير رسائلك بنجاح</string>
     <string name="request_receipts_summary">اطلب من الآخرين تأكيد أنهم فكوا تشفير رسائلك</string>
@@ -796,7 +796,7 @@ C) الحافظة، التي تشارك النصوص مع التطبيق الح�
     <string name="start">بدء</string>
     <string name="status">الحالة</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="stop_retry">حُظر التطبيق مؤقتًا لأسباب أمنية. حاول لاحقًا.</string>
+    <string name="stop_retry">حُظر التطبيق مؤقتًا. حاول لاحقًا.</string>
     <string name="tap2open">فتح</string>
     <string name="test_nook_notification">🔔 اختبار إشعار NooK</string>
     <string name="test_notification_error">خطأ في اختبار الإشعار</string>
