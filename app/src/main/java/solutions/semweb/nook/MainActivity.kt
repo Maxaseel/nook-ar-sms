@@ -39,6 +39,8 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.ProgressBar
+import android.widget.RadioButton
+import android.widget.RadioGroup
 import android.widget.ScrollView
 import android.widget.Spinner
 import android.widget.Switch
@@ -2481,11 +2483,43 @@ class MainActivity : AppCompatActivity(), MainActivitySoundPicker {
         if (biometricAvailable) {
             methods.add(PROTECTION_METHOD_BIOMETRIC to getString(R.string.app_protection_method_biometric))
         }
+        val density = resources.displayMetrics.density
+        val content = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+            setPadding((24 * density).toInt(), (8 * density).toInt(), (24 * density).toInt(), 0)
+        }
+        val hint = TextView(this).apply {
+            text = getString(R.string.app_protection_method_hint)
+            textSize = 14f
+            setPadding(0, 0, 0, (12 * density).toInt())
+        }
+        content.addView(hint)
+        val radioGroup = RadioGroup(this).apply { orientation = RadioGroup.VERTICAL }
+        val methodById = mutableMapOf<Int, String>()
+        methods.forEach { (method, label) ->
+            val option = RadioButton(this).apply {
+                id = View.generateViewId()
+                text = label
+                textSize = 16f
+                setPadding(0, (8 * density).toInt(), 0, (8 * density).toInt())
+                isChecked = prefs.appProtectionMethod == method
+            }
+            methodById[option.id] = method
+            radioGroup.addView(option, RadioGroup.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            ))
+        }
+        if (radioGroup.checkedRadioButtonId == -1) {
+            radioGroup.check(radioGroup.getChildAt(0).id)
+        }
+        content.addView(radioGroup)
         AlertDialog.Builder(this)
             .setTitle(getString(R.string.app_protection_method_title))
-            .setMessage(getString(R.string.app_protection_method_hint))
-            .setItems(methods.map { it.second }.toTypedArray()) { _, which ->
-                prefs.appProtectionMethod = methods[which].first
+            .setView(content)
+            .setPositiveButton(R.string.set) { _, _ ->
+                val selectedMethod = methodById[radioGroup.checkedRadioButtonId] ?: return@setPositiveButton
+                prefs.appProtectionMethod = selectedMethod
                 updatePatternSetupButtonVisibility()
                 if (wasProtectionEnabled && prefs.appProtectionPassword.isNotEmpty()) {
                     if (prefs.appProtectionMethod == PROTECTION_METHOD_PATTERN && prefs.appProtectionPattern.isEmpty()) {
