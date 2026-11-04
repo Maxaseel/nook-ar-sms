@@ -117,6 +117,9 @@ class MainActivity : AppCompatActivity(), MainActivitySoundPicker {
     private lateinit var settingsContent: LinearLayout
     private lateinit var settingsExpandIcon: ImageView
     private var isSettingsExpanded = false
+    private lateinit var mainToolbar: View
+    private lateinit var settingsPageToolbar: View
+    private var isSettingsPageVisible = false
     private lateinit var settingsYHeader: LinearLayout
     private lateinit var settingsYContent: LinearLayout
     private lateinit var settingsYExpandIcon: ImageView
@@ -575,7 +578,7 @@ class MainActivity : AppCompatActivity(), MainActivitySoundPicker {
                     // Brief pause to show completion message
                     Handler(Looper.getMainLooper()).postDelayed({
                         hideInitStatus()
-                        chatCard.visibility = View.VISIBLE
+                        if (!isSettingsPageVisible) chatCard.visibility = View.VISIBLE
                         loadChatConversations()
                     }, 500)
                     return
@@ -584,7 +587,7 @@ class MainActivity : AppCompatActivity(), MainActivitySoundPicker {
                 if (attempts >= 30) { // 30 seconds timeout
                     LogUtils.e("MAIN", "⚠️ Database timeout")
                     hideInitStatus()
-                    chatCard.visibility = View.VISIBLE
+                    if (!isSettingsPageVisible) chatCard.visibility = View.VISIBLE
                     loadChatConversations()
                     Toast.makeText(this@MainActivity,
                         "Database timeout - showing chats anyway",
@@ -1109,6 +1112,8 @@ class MainActivity : AppCompatActivity(), MainActivitySoundPicker {
         settingsHeader = findViewById(R.id.settings_header)
         settingsContent = findViewById(R.id.settings_content)
         settingsExpandIcon = findViewById(R.id.settings_expand_icon)
+        mainToolbar = findViewById(R.id.main_toolbar)
+        settingsPageToolbar = findViewById(R.id.settings_page_toolbar)
         notificationSoundName = findViewById(R.id.notification_sound_name)
         notificationSoundContainer = findViewById(R.id.notification_sound_container)
         testNotificationContainer = findViewById(R.id.test_notification_container)
@@ -1186,10 +1191,52 @@ class MainActivity : AppCompatActivity(), MainActivitySoundPicker {
     }
 
     private fun setupSettings() {
+        findViewById<View>(R.id.open_settings_button).setOnClickListener {
+            openSettingsPage()
+        }
+        findViewById<View>(R.id.settings_page_back_button).setOnClickListener {
+            closeSettingsPage()
+        }
         settingsHeader.setOnClickListener {
             toggleSettingsVisibility()
         }
         collapseSettings()
+    }
+
+    private fun openSettingsPage() {
+        if (isSettingsPageVisible) return
+
+        isSettingsPageVisible = true
+        mainToolbar.visibility = View.GONE
+        settingsPageToolbar.visibility = View.VISIBLE
+        chatCard.visibility = View.GONE
+        settingsCard.visibility = View.VISIBLE
+        settingsHeader.visibility = View.GONE
+        settingsContent.visibility = View.VISIBLE
+        isSettingsExpanded = true
+    }
+
+    private fun closeSettingsPage() {
+        if (!isSettingsPageVisible) return
+
+        isSettingsPageVisible = false
+        settingsPageToolbar.visibility = View.GONE
+        mainToolbar.visibility = View.VISIBLE
+        settingsCard.visibility = View.GONE
+        settingsHeader.visibility = View.VISIBLE
+        collapseSettings()
+        if (databaseActor.isReady) {
+            chatCard.visibility = View.VISIBLE
+        }
+    }
+
+    @Suppress("DEPRECATION")
+    override fun onBackPressed() {
+        if (isSettingsPageVisible) {
+            closeSettingsPage()
+        } else {
+            super.onBackPressed()
+        }
     }
 
     private fun toggleSettingsVisibility() {
@@ -1269,9 +1316,7 @@ class MainActivity : AppCompatActivity(), MainActivitySoundPicker {
                     dialog.dismiss()
                 }
                 .setNeutralButton(getString(R.string.configure_settings)) { dialog, _ ->
-                    if (!isSettingsExpanded) {
-                        expandSettings()
-                    }
+                    openSettingsPage()
                     dialog.dismiss()
                 }
                 .show()
