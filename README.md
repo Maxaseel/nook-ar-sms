@@ -1,87 +1,66 @@
-Welcome to NooK!   (No one Knows)   [https://semweb.solutions/nook/]
+أهلاً بك في NooK! (لا أحد يدري) [https://semweb.solutions/nook/]
 
-Private Android SMS Messaging Powered by AES-256 Encryption
+تراسل رسائل SMS خاص بنظام أندرويد مدعوم بتشفير AES-256
 
-Secure. Simple. Offline.
+آمن. بسيط. غير متصل بالإنترنت.
 
-NOOK transforms your everyday SMS into truly private conversations. Built directly on the cellular network, it requires to operate zero internet connection and collects/shares absolutely no data. Checks over the Internet for possible APK modifications using SHA release check. Your privacy isn't just a feature—it's the foundation.
+يحوّل NOOK رسائل SMS اليومية الخاصة بك إلى محادثات خاصة حقًا. تم تصميمه مباشرة على الشبكة الخلوية، ولا يتطلب أي اتصال بالإنترنت للعمل ولا يجمع/يشارك أي بيانات على الإطلاق. يتحقق عبر الإنترنت من تعديلات APK المحتملة باستخدام فحص إصدار SHA. خصوصيتك ليست مجرد ميزة - إنها الأساس.
 
-✨ Why Choose NooK?
+✨ لماذا تختار NooK؟
 
-    Military-Grade Encryption: Your messages are secured with AES-256 before they ever leave your device.
+*   **تشفير من الدرجة العسكرية:** رسائلك مؤمنة بتشفير AES-256 قبل أن تغادر جهازك على الإطلاق.
+*   **لا يوجد إنترنت؟ لا مشكلة:** تواصل بأمان باستخدام البنية التحتية لرسائل SMS الحالية، حتى في المناطق التي لا توجد بها إشارة بيانات.
+*   **بياناتك تبقى ملكك:** نحن لا نجمع أو نخزن أو نشارك أي شيء. لا يوجد متتبعات، ولا تحليلات، ولا خوادم سحابية.
+*   **مفتوح المصدر وشفاف:** الكود المصدري بأكمله متاح للجمهور ليقوم أي شخص بمراجعته. لا توجد أسرار، ولا أبواب خلفية.
 
-    No Internet? No Problem: Communicate securely using the existing SMS infrastructure, even in areas with no data signal.
+🚀 دليل التثبيت السريع من أندرويد 8 (أوريو) فما فوق
 
-    Your Data Stays Yours: We don't collect, store, or share anything. No trackers, no analytics, no cloud servers.
+هل أنت مستعد للتحكم في خصوصية رسائل SMS الخاصة بك؟ البدء سهل.
 
-    Open Source & Transparent: The entire codebase is public for anyone to audit. No secrets, no backdoors.
+1.  **نزّل التطبيق**
+    *   نزّل أحدث ملف APK لـ NooK [https://semweb.solutions/nook/nook.apk] مباشرة أو من هنا [https://github.com/redskate/nook/tree/master/app/releases]
+    *   **ملاحظة:** نظرًا لأذونات رسائل SMS الخاصة به، فإن NooK 🚫 **غير متاح على متجر Google Play**.
+2.  **لذلك: مكّن التثبيت من مصادر غير معروفة**
+    *   على جهاز الأندرويد الخاص بك، انتقل إلى "الإعدادات" > "الأمان".
+    *   في إعدادات جهازك للخصوصية والأمان، مكّن الخيار "تثبيت تطبيقات غير معروفة" أو "السماح من هذا المصدر" أو "تعطيل حظر التطبيقات" لمدير الملفات أو المتصفح الخاص بك (يمكنك دائمًا تمكين ذلك مرة أخرى بعد هذا التثبيت).
+3.  **ملاحظة:** سيطلب مثبت الأندرويد "فهم" أن التطبيق قد يكون خطيرًا
+    حسنًا: ربما "قد يكون". ولكن ليس خطيرًا على الإطلاق -> انظر الكود (SmsReceiver, SmsSender, SmsScanner) - NooK آمن.
 
-🚀 Quick Installation Guide from Android 8 (Oreo) on
+    💡 **في نافذة التحذير عند تثبيت أندرويد، اختر "مزيد من التفاصيل" ثم أكد (تثبيت) على أي حال**
 
-Ready to take control of your SMS privacy? Getting started is easy.
+4.  **🚀 شغّل تطبيق NooK**
 
-    Download the App
+5.  **❗ اقرأ واقبل إخلاء المسؤولية (!!) وامنح 3 أذونات**
+    *   افتح ملف APK الذي تم تنزيله واتبع إرشادات التثبيت.
+    *   عندما يُطلب منك ذلك، امنح الأذونات اللازمة (مثل الرسائل القصيرة وجهات الاتصال). هذه مطلوبة فقط لكي يعمل التطبيق - لإرسال واستقبال وتشفير الرسائل لجهات الاتصال الموثوقة لديك. نحن لا نسيء استخدامها أبدًا.
+6.  **ابدأ الدردشة بأمان!**
+    *   افتح NooK، حدد جهة اتصال، اجعلها جهة اتصال موثوقة، وقم بتعيين سر مشترك (كلمة مرور تتفقان عليها). شارك السر صوتيًا (أكثر أمانًا) أو كتابيًا.
+    *   هذا كل شيء! رسائلك الآن مشفرة من طرف إلى طرف.
 
-        Download the latest NooK APK [https://semweb.solutions/nook/nook.apk] directly or from here in [https://github.com/redskate/nook/tree/master/app/releases]
+⚠️ **ملاحظة حول أذونات التطبيق**
 
-        Note: Due to its SMS permissions, NooK is 🚫 not available on the Google Play Store.
+قد ترى تحذيرًا دوريًا من Google Play Protect أو ماسحات الفيروسات الأخرى. هذا خطأ إيجابي معروف ناتج عن وصول التطبيق إلى أذونات رسائل SMS.
 
-    Thus: Enable Installation from Unknown Sources
+*   **لماذا يحدث هذا:** غالبًا ما تصنف الماسحات الضوئية أي تطبيق لديه أذونات رسائل SMS كبرنامج ضار محتمل.
+*   **الحقيقة:** NooK آمن 100% ومفتوح المصدر - انظر بنفسك. إنه يرسل رسالة SMS فقط عندما تضغط على زر الإرسال في NooK في محادثة واحدة، ويخزن جميع البيانات مشفرة على هاتفك ويحتفظ بها هناك.
+*   **التثبيت بثقة:** يذكرك إشعار دائم بأن التطبيق نشط وآمن.
 
-        On your Android device, go to Settings > Security.
+📖 **نصائح للمستخدم لأول مرة**
 
-        In your device settings on privacy and security, enable the option "Install unknown apps" or "Allow from this source" or "disable APP block" for your file manager or browser (You may always enable that again after this installation).
+*   **إعداد قفل تطبيق NooK:** قم بتمكين قفل بصمة الإصبع أو رقم التعريف الشخصي على الفور في الإعدادات لتأمين التطبيق عندما تكون بعيدًا.
+*   **مشاركة الأسرار بأمان:** اتفق على كلمات المرور المشتركة مع جهات الاتصال من خلال قناة ثانوية آمنة (مثل مكالمة سريعة أو شخصيًا) قبل بدء المحادثة. ومع ذلك، نظرًا للتشفير الافتراضي Base256 المحدد، يمكنك أيضًا استخدام دردشة NooK التي تم إنشاؤها حديثًا للاتفاق على كلمات مرور التشفير / الترميز (استخدمها باقتصاد).
+*   **فهم ما هو مرئي:** بينما يكون محتوى رسالتك مشفرًا، تظل بيانات تعريف رسائل SMS القياسية (مثل رقم هاتف المرسل والطابع الزمني) مرئية لشركة الاتصالات الخلوية الخاصة بك - تمامًا كما هو الحال مع أي رسالة نصية عادية.
 
-    NB: Android installer will want to "understand" that the APP be potentially dangerous
-    Well: maybe "potential-ly". But not dangerous at all -> see the code (SmsReceiver, SmsSender, SmsScanner) - NooK is safe.
-    
-    💡 In the Warning Android Instalation Popup, CHOOSE "more details" and then CONFIRM (INSTALL) ANYWAY  
-    
-    🚀 Launch NooK APP
-    
-    ❗ READ and Accept disclaimer (!!) & Grant 3 Permissions
+🚫 **ملاحظات هامة**
 
-        Open the downloaded APK file and follow the installation prompts.
+*   يبدو أن أندرويد يقيد بشكل متزايد التطبيقات المسجلة بواسطة GOOGLE Play Store، وهو متجر التطبيقات الرسمي لـ GOOGLE لهواتف أندرويد القياسية.
+*   قد تبحث في السوق المجدد عن هاتف بكسل جيد (اقتراحي: بكسل 5).
+*   **إليك ما يمكنك فعله، في حال كنت بحاجة إلى NooK:**
 
-        When prompted, grant the necessary permissions (like SMS and contacts). These are required only for the app to function—to send, receive, and encrypt messages for your trusted contacts. We never misuse them.
+    1.  ابحث عن أرشيفات تطبيقات أخرى مثل F-DROID [https://f-droid.org] أو AURORA [https://store.auroraoss.com] وقم بتثبيتها. سيتعين عليك البحث عن ملف APK الخاص بها مباشرة وتثبيت ملف APK الخاص بالأرشيف أولاً أو اتباع تعليماتهم، ثم من هناك NooK (إذا كان موجودًا).
+    2.  فكر في استخدام هاتف مع محمل إقلاع غير مقفل (unlocked bootloader)، وتثبيت ROM مخصص مثل lineage [https://lineageos.org/]، أو e/OS [https://e.foundation/e-os/] أو أي ROM آخر هنا: [https://keepandroidopen.org] ثم تابع الخطوة 1.
+    3.  قم بعمل روت لجهازك و "تخلّص من خدمات جوجل" (de-google) له. يجب أن يكون جهازك ملكًا لك. ملاحظة: قد يمنعك عمل الروت من استخدام تطبيقات الهوية والخدمات المصرفية. احتفظ بهاتف ثانٍ للتواصل الآمن فقط!
 
-    Start Chatting Securely!
+*   في الوقت الحالي، وبحسب علمي، فإن هواتف GOOGLE (!) بكسل الذكية لديها محمل إقلاع قابل للفتح مما يسمح بتثبيت ROM مخصص أكثر حرية.
 
-        Open NooK, select a contact, make it to trusted contact, and set a shared secret (a password you both agree on). Share the secret by voice (more secure) or paper.
-
-        That's it! Your messages are now encrypted end-to-end.
-
-⚠️ A Note on App Permissions
-
-You might see a cyclic warning from Google Play Protect or other virus scanners. This is a known false positive triggered by the app's access to SMS permissions.
-
-    Why this happens: Scanners often flag any app with SMS permissions as potential malware.
-
-    The Truth: NooK is 100% safe and open source - see yourself. It only sends an SMS when you press NooK's send button in one chat, stores all data encrypted on your phone and keeps them there.
-
-    Install with Confidence: A permanent notification reminds you the app is active and safe.
-
-📖 First-Time User Tips
-
-    Set Up NooK App Lock: Immediately enable the fingerprint or PIN lock in settings to secure the app when you're away.
-
-    Share Secrets Safely: Agree on your shared passwords with contacts through a secure secondary channel (like a quick call or in person) before starting a conversation. However, due to the Default Base256 encryption set, you might also use NooK fresh created chat to agree on encryption / encoding passwords (use with parsimony).
-
-    Understand What's Visible: While your message content is encrypted, standard SMS metadata (like the sender's phone number and timestamp) remains visible to your cellular carrier—just like with any regular text message.
-
-🚫 Important Notes
-
-    Android seems to restrict more and more the APPs registered by GOOGLE Play Store, the official APP store of GOOGLE for Android standard OS phones.
-    You might search in the refurbed market for a good pixel phone (my suggestion: pixel 5).
-    
-    Here what you can do, in case you'd NEED NooK:
-
-    1. Look for and install other APP archives like F-DROID [https://f-droid.org] or AURORA [https://store.auroraoss.com]. You will have to search for their APK directly and install first the archive's APK or follow their instructions, then from there NooK (if present).
-    2. Consider using a phone with unlocked bootloader, install a custom ROM like lineage [https://lineageos.org/], e/OS [https://e.foundation/e-os/] or another one here: [https://keepandroidopen.org] and proceed with step 1. 
-    3. Root your device and "de-google" it. Your device should belong to you. Note: Rooting may prevent you to use identity and banking APPs. Keep a second phone for safe communication only! 
-
-    Currently to my knowledge the GOOGLE (!) pixel smartphones have an unlockable bootloader allowing to install a more freedom friendly custom ROM.
-
-Welcome to a world where your conversations are truly your own. With NooK, No One Knows.
-
-
+مرحباً بك في عالم تكون فيه محادثاتك ملكك حقًا. مع NooK، لا أحد يدري.
