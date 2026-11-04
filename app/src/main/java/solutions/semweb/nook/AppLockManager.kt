@@ -97,8 +97,8 @@ class AppLockManager private constructor(private val appContext: Context) {
         lockCheckRunnable = object : Runnable {
             override fun run() {
                 checkAndLockIfNeeded()
-                // Reprogram in 30 seconds
-                handler.postDelayed(this, 30000)
+                // Keep timeout choices responsive without polling excessively.
+                handler.postDelayed(this, 5000)
             }
         }
 
@@ -196,4 +196,3 @@ class AppLockManager private constructor(private val appContext: Context) {
         }
     }
 }
-

@@ -97,6 +97,7 @@ class MainActivity : AppCompatActivity(), MainActivitySoundPicker {
     private lateinit var appProtectionToggle: Switch
     private lateinit var patternSetupButton: Button
     private lateinit var changeProtectionMethodButton: Button
+    private lateinit var protectionTimeoutButton: Button
     private lateinit var pureSmsToggle: Switch
     private lateinit var keyboardSafetyManager: KeyboardSafetyManager
     private lateinit var prefs: SharedPreferencesManager
@@ -301,6 +302,10 @@ class MainActivity : AppCompatActivity(), MainActivitySoundPicker {
         try {
             LogUtils.e("MAIN", "🚀 onCreate() - LINEAR APPROACH")
             setContentView(R.layout.activity_main)
+            window.navigationBarColor = ContextCompat.getColor(this, R.color.intensive_green)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                window.isNavigationBarContrastEnforced = false
+            }
 
             // 1. Init utils
             utils = MainActivityUtils(this)
@@ -2196,6 +2201,10 @@ class MainActivity : AppCompatActivity(), MainActivitySoundPicker {
         dialog.setContentView(dialogView)
         dialog.setCancelable(false)
         dialog.show()
+        dialog.window?.navigationBarColor = ContextCompat.getColor(this, R.color.intensive_green)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            dialog.window?.isNavigationBarContrastEnforced = false
+        }
 
         if (hasSavedPattern && prefs.appProtectionMethod == PROTECTION_METHOD_PATTERN) {
             if (!patternIsPrimary) patternButton.visibility = View.VISIBLE
@@ -2370,11 +2379,13 @@ class MainActivity : AppCompatActivity(), MainActivitySoundPicker {
             appProtectionToggle = findViewById(R.id.app_protection_toggle)
             patternSetupButton = findViewById(R.id.pattern_setup_button)
             changeProtectionMethodButton = findViewById(R.id.change_protection_method_button)
+            protectionTimeoutButton = findViewById(R.id.app_protection_timeout_button)
 
             appProtectionToggle.isChecked = prefs.appProtectionEnabled
             updatePatternSetupButtonVisibility()
             patternSetupButton.setOnClickListener { showSetAppProtectionPatternDialog() }
             changeProtectionMethodButton.setOnClickListener { showProtectionMethodChooser() }
+            protectionTimeoutButton.setOnClickListener { showProtectionTimeoutChooser() }
             bindAppProtectionToggleListener()
 
             LogUtils.e("MAIN", "✅ App protection toggle initialised: ${prefs.appProtectionEnabled}")
@@ -2420,6 +2431,42 @@ class MainActivity : AppCompatActivity(), MainActivitySoundPicker {
         }
         changeProtectionMethodButton.text = getString(R.string.app_protection_change_method_current, methodLabel)
         changeProtectionMethodButton.visibility = if (prefs.appProtectionEnabled) View.VISIBLE else View.GONE
+        updateProtectionTimeoutButton()
+    }
+
+    private fun updateProtectionTimeoutButton() {
+        if (!this::protectionTimeoutButton.isInitialized) return
+        val timeoutLabel = when (prefs.appProtectionTimeout) {
+            15 -> getString(R.string.app_protection_timeout_15_seconds)
+            30 -> getString(R.string.app_protection_timeout_30_seconds)
+            60 -> getString(R.string.app_protection_timeout_1_minute)
+            120 -> getString(R.string.app_protection_timeout_2_minutes)
+            300 -> getString(R.string.app_protection_timeout_5_minutes)
+            600 -> getString(R.string.app_protection_timeout_10_minutes)
+            else -> getString(R.string.app_protection_timeout_custom, prefs.appProtectionTimeout)
+        }
+        protectionTimeoutButton.text = getString(R.string.app_protection_timeout_current, timeoutLabel)
+        protectionTimeoutButton.visibility = if (prefs.appProtectionEnabled) View.VISIBLE else View.GONE
+    }
+
+    private fun showProtectionTimeoutChooser() {
+        val options = listOf(
+            15 to getString(R.string.app_protection_timeout_15_seconds),
+            30 to getString(R.string.app_protection_timeout_30_seconds),
+            60 to getString(R.string.app_protection_timeout_1_minute),
+            120 to getString(R.string.app_protection_timeout_2_minutes),
+            300 to getString(R.string.app_protection_timeout_5_minutes),
+            600 to getString(R.string.app_protection_timeout_10_minutes)
+        )
+        AlertDialog.Builder(this)
+            .setTitle(R.string.app_protection_timeout_title)
+            .setItems(options.map { it.second }.toTypedArray()) { _, which ->
+                prefs.appProtectionTimeout = options[which].first
+                updateProtectionTimeoutButton()
+                if (this::appLockManager.isInitialized) appLockManager.updateLastActiveTime()
+            }
+            .setNegativeButton(R.string.cancel, null)
+            .show()
     }
 
     private fun showProtectionMethodChooser() {
