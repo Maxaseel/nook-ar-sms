@@ -631,4 +631,6 @@
     <string name="app_protection_method_biometric">Impronta digitale e password di recupero</string>
     <string name="app_protection_method_hint">Il pattern e l’impronta richiedono una password di recupero. L’impronta appare solo se configurata nelle impostazioni del dispositivo.</string>
     <string name="app_protection_password_backup">Imposta una password di recupero per il metodo selezionato.</string>
+    <string name="app_protection_change_method">Cambia metodo di blocco</string>
+    <string name="app_protection_change_method_current">Metodo di blocco attuale: %1$s — cambia</string>
 </resources>

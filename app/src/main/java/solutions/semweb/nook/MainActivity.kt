@@ -96,6 +96,7 @@ class MainActivity : AppCompatActivity(), MainActivitySoundPicker {
     private var shaVerificationReceiver: BroadcastReceiver? = null
     private lateinit var appProtectionToggle: Switch
     private lateinit var patternSetupButton: Button
+    private lateinit var changeProtectionMethodButton: Button
     private lateinit var pureSmsToggle: Switch
     private lateinit var keyboardSafetyManager: KeyboardSafetyManager
     private lateinit var prefs: SharedPreferencesManager
@@ -1965,6 +1966,7 @@ class MainActivity : AppCompatActivity(), MainActivitySoundPicker {
     }
 
     private fun showSetAppProtectionPasswordDialog() {
+        val protectionWasAlreadyEnabled = prefs.appProtectionEnabled
         val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_app_protection_password, null)
 
         val titleText = dialogView.findViewById<TextView>(R.id.dialog_title)
@@ -1990,12 +1992,12 @@ class MainActivity : AppCompatActivity(), MainActivitySoundPicker {
             .setPositiveButton(getString(R.string.set), null)
             .setNegativeButton(getString(R.string.cancel)) { dialog, _ ->
                 // Just dismiss and turn off the toggle WITHOUT showing any Toast
-                appProtectionToggle.isChecked = false
+                if (!protectionWasAlreadyEnabled) appProtectionToggle.isChecked = false
                 dialog.dismiss()
             }
             .setOnCancelListener {
                 // Just dismiss and turn off the toggle WITHOUT showing any Toast
-                appProtectionToggle.isChecked = false
+                if (!protectionWasAlreadyEnabled) appProtectionToggle.isChecked = false
             }
             .create()
 
@@ -2139,6 +2141,7 @@ class MainActivity : AppCompatActivity(), MainActivitySoundPicker {
         prefs.appProtectionPattern = ""
         prefs.appProtectionMethod = PROTECTION_METHOD_PASSWORD
         if (this::patternSetupButton.isInitialized) patternSetupButton.visibility = View.GONE
+        updateProtectionMethodButton()
         showToast(getString(R.string.app_protection_disabled))
         LogUtils.e("MAIN", "✅ APP protection disabled")
     }
@@ -2366,10 +2369,12 @@ class MainActivity : AppCompatActivity(), MainActivitySoundPicker {
         try {
             appProtectionToggle = findViewById(R.id.app_protection_toggle)
             patternSetupButton = findViewById(R.id.pattern_setup_button)
+            changeProtectionMethodButton = findViewById(R.id.change_protection_method_button)
 
             appProtectionToggle.isChecked = prefs.appProtectionEnabled
             updatePatternSetupButtonVisibility()
             patternSetupButton.setOnClickListener { showSetAppProtectionPatternDialog() }
+            changeProtectionMethodButton.setOnClickListener { showProtectionMethodChooser() }
             bindAppProtectionToggleListener()
 
             LogUtils.e("MAIN", "✅ App protection toggle initialised: ${prefs.appProtectionEnabled}")
@@ -2394,6 +2399,7 @@ class MainActivity : AppCompatActivity(), MainActivitySoundPicker {
         appProtectionToggle.setOnCheckedChangeListener(null)
         appProtectionToggle.isChecked = prefs.appProtectionEnabled
         updatePatternSetupButtonVisibility()
+        updateProtectionMethodButton()
         bindAppProtectionToggleListener()
     }
 
@@ -2402,9 +2408,22 @@ class MainActivity : AppCompatActivity(), MainActivitySoundPicker {
         patternSetupButton.visibility = if (
             prefs.appProtectionEnabled && prefs.appProtectionMethod == PROTECTION_METHOD_PATTERN
         ) View.VISIBLE else View.GONE
+        updateProtectionMethodButton()
+    }
+
+    private fun updateProtectionMethodButton() {
+        if (!this::changeProtectionMethodButton.isInitialized) return
+        val methodLabel = when (prefs.appProtectionMethod) {
+            PROTECTION_METHOD_PATTERN -> getString(R.string.app_protection_method_pattern)
+            PROTECTION_METHOD_BIOMETRIC -> getString(R.string.app_protection_method_biometric)
+            else -> getString(R.string.app_protection_method_password)
+        }
+        changeProtectionMethodButton.text = getString(R.string.app_protection_change_method_current, methodLabel)
+        changeProtectionMethodButton.visibility = if (prefs.appProtectionEnabled) View.VISIBLE else View.GONE
     }
 
     private fun showProtectionMethodChooser() {
+        val wasProtectionEnabled = prefs.appProtectionEnabled
         val biometricAvailable = BiometricManager.from(this).canAuthenticate(
             BiometricManager.Authenticators.BIOMETRIC_WEAK
         ) == BiometricManager.BIOMETRIC_SUCCESS
@@ -2420,7 +2439,14 @@ class MainActivity : AppCompatActivity(), MainActivitySoundPicker {
             .setMessage(getString(R.string.app_protection_method_hint))
             .setItems(methods.map { it.second }.toTypedArray()) { _, which ->
                 prefs.appProtectionMethod = methods[which].first
-                showSetAppProtectionPasswordDialog()
+                updatePatternSetupButtonVisibility()
+                if (wasProtectionEnabled && prefs.appProtectionPassword.isNotEmpty()) {
+                    if (prefs.appProtectionMethod == PROTECTION_METHOD_PATTERN && prefs.appProtectionPattern.isEmpty()) {
+                        showSetAppProtectionPatternDialog()
+                    }
+                } else {
+                    showSetAppProtectionPasswordDialog()
+                }
             }
             .setNegativeButton(getString(R.string.cancel)) { _, _ ->
                 if (!prefs.appProtectionEnabled) appProtectionToggle.isChecked = false
