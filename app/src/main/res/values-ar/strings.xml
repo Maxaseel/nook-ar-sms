@@ -1,0 +1,864 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<resources>
+    <string name="MessageNotDecrypted">&lt;عذرًا: تعذّر فك تشفير الرسالة&gt;</string>
+    <string name="abc_action_bar_home_description">الانتقال إلى الصفحة الرئيسية</string>
+    <string name="abc_action_bar_up_description">الانتقال لأعلى</string>
+    <string name="abc_action_menu_overflow_description">خيارات إضافية</string>
+    <string name="abc_action_mode_done">تم</string>
+    <string name="abc_activity_chooser_view_see_all">عرض الكل</string>
+    <string name="abc_activitychooserview_choose_application">اختيار تطبيق</string>
+    <string name="abc_capital_off">إيقاف</string>
+    <string name="abc_capital_on">تشغيل</string>
+    <string name="abc_menu_alt_shortcut_label">Alt+</string>
+    <string name="abc_menu_ctrl_shortcut_label">Ctrl+</string>
+    <string name="abc_menu_delete_shortcut_label">حذف</string>
+    <string name="abc_menu_enter_shortcut_label">إدخال</string>
+    <string name="abc_menu_function_shortcut_label">Function+</string>
+    <string name="abc_menu_meta_shortcut_label">Meta+</string>
+    <string name="abc_menu_shift_shortcut_label">Shift+</string>
+    <string name="abc_menu_space_shortcut_label">مسافة</string>
+    <string name="abc_menu_sym_shortcut_label">Sym+</string>
+    <string name="abc_prepend_shortcut_label">Menu+</string>
+    <string name="abc_search_hint">بحث…</string>
+    <string name="abc_searchview_description_clear">مسح الاستعلام</string>
+    <string name="abc_searchview_description_query">استعلام البحث</string>
+    <string name="abc_searchview_description_search">بحث</string>
+    <string name="abc_searchview_description_submit">إرسال الاستعلام</string>
+    <string name="abc_searchview_description_voice">بحث صوتي</string>
+    <string name="abc_shareactionprovider_share_with">مشاركة عبر</string>
+    <string name="abc_shareactionprovider_share_with_application">مشاركة عبر %s</string>
+    <string name="abc_toolbar_collapse_description">طي</string>
+    <string name="activated">مفعّل</string>
+    <string name="active_switch_text">نشط</string>
+    <string name="add_trusted_contact_title">إضافة جهة اتصال موثوقة</string>
+    <string name="added_to_keyboards_blacklist">🚫 أُضيفت لوحة المفاتيح %s إلى القائمة السوداء</string>
+    <string name="added_to_keyboards_whitelist">✅ أُضيفت لوحة المفاتيح %s إلى القائمة البيضاء</string>
+    <string name="alarm_manager_available_android_12">يتوفر AlarmManager على Android 12+</string>
+    <string name="alert_contacts_permission_message">لربط الأسماء بأرقام الهواتف، يلزم إذن قراءة جهات الاتصال.</string>
+    <string name="alert_contacts_permission_title">إذن جهات الاتصال</string>
+    <string name="alert_grant">سماح</string>
+    <string name="alert_later">لاحقًا</string>
+    <string name="alert_notification_permission_message">لتلقّي الرسائل في الوقت الفعلي، يحتاج NooK إلى إذن عرض الإشعارات.</string>
+    <string name="alert_notification_permission_title">إذن الإشعارات</string>
+    <string name="alert_ok">موافق</string>
+    <string name="alert_permission_read_contacts">قراءة جهات الاتصال</string>
+    <string name="alert_permission_read_sms">قراءة الرسائل القصيرة</string>
+    <string name="alert_permission_receive_sms">استلام الرسائل القصيرة</string>
+    <string name="alert_permission_send_sms">إرسال الرسائل القصيرة</string>
+    <string name="alert_permissions_denied_message">رُفضت الأذونات التالية:
+
+• %s
+
+قد لا يعمل التطبيق على نحوٍ صحيح.</string>
+    <string name="alert_permissions_denied_title">أذونات مرفوضة</string>
+    <string name="alert_required_permissions_title">الأذونات المطلوبة</string>
+    <string name="alert_scan_result_completed_title">✅ اكتمل</string>
+    <string name="alert_scan_result_error">خطأ: %s</string>
+    <string name="alert_scan_result_no_sms">لم يتم العثور على رسائل SMS لـ %1$s خلال الساعات %2$d الماضية</string>
+    <string name="alert_scan_result_success">✅ %1$d رسالة SMS جديدة لـ %2$s
+🔐 فُكّ تشفيرها: %3$d
+📝 نص عادي: %4$d
+⚠️ أخطاء: %5$d
+📋 موجودة مسبقًا: %6$d</string>
+    <string name="alert_scan_result_title">ℹ️ النتائج</string>
+    <string name="all_contacts_already_in_chat">كل جهات الاتصال موجودة بالفعل في المحادثة!</string>
+    <string name="all_contacts_info">⚠️ فك/تشفير SMS لأي جهة اتصال</string>
+    <string name="all_contacts_mode_active">✅ وضع «الكل» مفعّل: فك التشفير من أي رقم</string>
+    <string name="all_contacts_removed">✅ أُزيلت كل جهات الاتصال</string>
+    <string name="all_decisions_cleared">مُسحت كل القرارات</string>
+    <string name="all_trusted_contacts_already_in_chat">كل جهات الاتصال الموثوقة موجودة بالفعل في المحادثة!</string>
+    <string name="allow">سماح</string>
+    <string name="allow_screenshots_title">السماح بلقطات الشاشة</string>
+    <string name="allow_sending_receipts_description">إشعار المرسلين الذين طلبوا تأكيدًا عند فك تشفير رسائلهم بنجاح</string>
+    <string name="allow_sending_receipts_title">إرسال إيصالات فك التشفير</string>
+    <string name="already_latest">لديك أحدث إصدار بالفعل</string>
+    <string name="android_12_message">في Android 12+، لضمان عمل الاستقصاء على نحو صحيح، قد تحتاج إلى منح إذن «ضبط المنبّهات الدقيقة» من إعدادات التطبيق.</string>
+    <string name="android_12_title">Android 12+ وAlarmManager</string>
+    <string name="androidx_startup">androidx.startup</string>
+    <string name="apk_hash_match">تطابق تجزئة APK</string>
+    <string name="apk_hash_mismatch">عدم تطابق تجزئة APK</string>
+    <string name="app_footer">NooK - SMS</string>
+    <string name="app_name">NooK</string>
+    <string name="app_owner_hint">اسمك</string>
+    <string name="app_protection_confirm_dialog_message">أكّد كلمة المرور:</string>
+    <string name="app_protection_dialog_message">أدخل كلمة مرور من 6 أحرف لحماية الوصول إلى التطبيق:</string>
+    <string name="app_protection_dialog_title">تعيين كلمة مرور الحماية</string>
+    <string name="app_protection_disabled">أُزيلت حماية التطبيق</string>
+    <string name="app_protection_enter_password">أدخل كلمة مرور إلغاء القفل</string>
+    <string name="app_protection_lock">NooK - الحماية</string>
+    <string name="app_protection_password_too_short">يجب أن تتكون كلمة المرور من 6 أحرف على الأقل</string>
+    <string name="app_protection_passwords_not_match">كلمتا المرور غير متطابقتين</string>
+    <string name="app_protection_set_success">تم تعيين كلمة مرور الحماية</string>
+    <string name="app_protection_title">افتح قفل التطبيق بكلمة المرور</string>
+    <string name="app_protection_title4toggle">حماية التطبيق بكلمة مرور</string>
+    <string name="app_title">NooK - مراسل آمن</string>
+    <string name="app_verified">تم التحقق من التطبيق</string>
+    <string name="app_verified_offline">تم التحقق من التطبيق دون اتصال</string>
+    <string name="appbar_scrolling_view_behavior">com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior</string>
+    <string name="appowner">المالك/ة</string>
+    <string name="approve">موافقة</string>
+    <string name="approve_keyboard">✅ الموافقة على لوحة المفاتيح هذه</string>
+    <string name="approved">مقبولة</string>
+    <string name="auto_password_generated">✅ تم إنشاء كلمة المرور التلقائية</string>
+    <string name="auto_send_receipts">إرسال تأكيدات فك التشفير تلقائيًا</string>
+    <string name="auto_send_receipts_summary">إرسال تأكيد تلقائي عند فك تشفير الرسائل</string>
+    <string name="available_versions">الإصدارات المتاحة:</string>
+    <string name="back">رجوع</string>
+    <string name="base1024_encoding_configured">تم إعداد ترميز Base1024</string>
+    <string name="base128_encoding_configured">تم إعداد ترميز Base128</string>
+    <string name="base2048_encoding_configured">تم إعداد ترميز Base2048</string>
+    <string name="base256_encoding_configured">تم إعداد ترميز Base256</string>
+    <string name="base32_encoding_configured">تم إعداد ترميز Base32</string>
+    <string name="base512_encoding_configured">تم إعداد ترميز Base512</string>
+    <string name="base64_encoding_configured">تم إعداد ترميز Base64</string>
+    <string name="bottom_sheet_behavior">com.google.android.material.bottomsheet.BottomSheetBehavior</string>
+    <string name="bottomsheet_action_collapse">طي اللوحة السفلية</string>
+    <string name="bottomsheet_action_expand">توسيع اللوحة السفلية</string>
+    <string name="bottomsheet_action_expand_halfway">التوسيع حتى المنتصف</string>
+    <string name="bottomsheet_drag_handle_clicked">تم النقر المزدوج على مقبض السحب</string>
+    <string name="bottomsheet_drag_handle_content_description">مقبض السحب</string>
+    <string name="browse_files">العثور على محادثة مُصدّرة</string>
+    <string name="button_import">استيراد محادثة</string>
+    <string name="call_notification_answer_action">رد</string>
+    <string name="call_notification_answer_video_action">فيديو</string>
+    <string name="call_notification_decline_action">رفض</string>
+    <string name="call_notification_hang_up_action">إنهاء المكالمة</string>
+    <string name="call_notification_incoming_text">مكالمة واردة</string>
+    <string name="call_notification_ongoing_text">مكالمة جارية</string>
+    <string name="call_notification_screening_text">فحص مكالمة واردة</string>
+    <string name="cancel">إلغاء</string>
+    <string name="cannot_open_settings">يتعذر فتح الإعدادات</string>
+    <string name="character_counter_content_description">الأحرف المُدخلة: %1$d من %2$d</string>
+    <string name="character_counter_overflowed_content_description">تم تجاوز حد الأحرف: %1$d من %2$d</string>
+    <string name="character_counter_pattern">%1$d/%2$d</string>
+    <string name="chat">محادثة</string>
+    <string name="chat_creation_blocked_message">وسّع النطاق إلى «كل جهات الاتصال» أو اختر جهة اتصال موثوقة واحدة على الأقل قبل إنشاء محادثة جديدة.</string>
+    <string name="chat_creation_blocked_title">يتعذر إنشاء المحادثة</string>
+    <string name="chat_deleted">حُذفت المحادثة</string>
+    <string name="chat_emptied">أُفرغت المحادثة</string>
+    <string name="chat_info">معلومات المحادثة</string>
+    <string name="chat_list_updated_after_new_message">✅ تم تحديث قائمة المحادثات بعد رسالة جديدة</string>
+    <string name="chat_name_hint">مثلًا: أستريكس</string>
+    <string name="chat_name_title">اسم المحادثة (اختياري):</string>
+    <string name="chat_title">محادثة</string>
+    <string name="chat_update_receiver_registered">تم تسجيل مستقبِل تحديث المحادثة</string>
+    <string name="chatesport_errorfolder">خطأ: يتعذر إنشاء المجلد المؤقت</string>
+    <string name="chatesport_no_crypt">سيتم تصدير المحادثة من دون تشفير. هل تريد المتابعة؟</string>
+    <string name="chatesport_password_crypt">أدخل كلمة مرور مكوّنة من 16 حرفًا على الأقل لتشفير التصدير، أو اتركه فارغًا لعدم التشفير</string>
+    <string name="chatexport_html_title">محادثة NooK مُصدّرة</string>
+    <string name="chatexport_nofilescreated">خطأ: يتعذر إنشاء الملفات</string>
+    <string name="chatexport_nozipscreated">خطأ: يتعذر إنشاء ملف ZIP</string>
+    <string name="chats_section_hint">المس محادثة لفتحها، أو اضغط مطولًا لعرض الخيارات، أو أنشئ محادثة جديدة باستخدام العدسة. إذا لم يستجب التطبيق، انتظر دقيقة واحدة أو أعد تشغيله.</string>
+    <string name="chats_section_title">💬 المحادثات</string>
+    <string name="check_app_integrity">التحقق من سلامة التطبيق</string>
+    <string name="check_permissions_button">الأذونات</string>
+    <string name="checking_for_updates">جارٍ التحقق من التحديثات…</string>
+    <string name="clear_all">مسح الكل</string>
+    <string name="clear_all_message">هل تريد مسح جميع القرارات المتعلقة بلوحات المفاتيح؟</string>
+    <string name="clear_all_question">مسح الكل؟</string>
+    <string name="clear_chat_message">هل تريد حقًا حذف جميع رسائل المحادثة مع %s؟</string>
+    <string name="clear_chat_question">إفراغ المحادثة؟</string>
+    <string name="clear_text_end_icon_content_description">مسح النص</string>
+    <string name="common_google_play_services_enable_button">تفعيل</string>
+    <string name="common_google_play_services_enable_text">لن يعمل %1$s ما لم تُفعّل خدمات Google Play.</string>
+    <string name="common_google_play_services_enable_title">تفعيل خدمات Google Play</string>
+    <string name="common_google_play_services_install_button">تثبيت</string>
+    <string name="common_google_play_services_install_text">لن يعمل %1$s من دون خدمات Google Play، وهي غير موجودة على جهازك.</string>
+    <string name="common_google_play_services_install_title">الحصول على خدمات Google Play</string>
+    <string name="common_google_play_services_notification_channel_name">توفر خدمات Google Play</string>
+    <string name="common_google_play_services_notification_ticker">خطأ في خدمات Google Play</string>
+    <string name="common_google_play_services_unknown_issue">تواجه %1$s مشكلة في خدمات Google Play. يُرجى المحاولة مرة أخرى.</string>
+    <string name="common_google_play_services_unsupported_text">لن يعمل %1$s من دون خدمات Google Play، وهي غير مدعومة على جهازك.</string>
+    <string name="common_google_play_services_update_button">تحديث</string>
+    <string name="common_google_play_services_update_text">لن يعمل %1$s ما لم تُحدّث خدمات Google Play.</string>
+    <string name="common_google_play_services_update_title">تحديث خدمات Google Play</string>
+    <string name="common_google_play_services_updating_text">لن يعمل %1$s من دون خدمات Google Play، التي يجري تحديثها حاليًا.</string>
+    <string name="common_google_play_services_wear_update_text">يلزم إصدار جديد من خدمات Google Play. وسيُحدَّث تلقائيًا قريبًا.</string>
+    <string name="common_open_on_phone">فتح على الهاتف</string>
+    <string name="common_signin_button_text">تسجيل الدخول</string>
+    <string name="common_signin_button_text_long">تسجيل الدخول باستخدام Google</string>
+    <string name="configure_settings">تهيئة الإعدادات</string>
+    <string name="confirm_installation_message">هل تؤكد رغبتك في تنزيل وتثبيت الإصدار %s من NooK؟
+
+بعد تنزيله، سيُغلق التطبيق ويشغّل الأرشيف للتثبيت.</string>
+    <string name="confirm_installation_title">تأكيد التثبيت</string>
+    <string name="confirm_password">تأكيد كلمة المرور</string>
+    <string name="confirm_password_hint">تأكيد كلمة المرور</string>
+    <string name="contact_already_exists">جهة الاتصال موجودة بالفعل</string>
+    <string name="contact_already_exists_message">الرقم %1$s موجود بالفعل ضمن جهات الاتصال الموثوقة باسم: %2$s</string>
+    <string name="contact_name_placeholder">اسم جهة الاتصال</string>
+    <string name="contact_removed">✅ أُزيلت جهة الاتصال</string>
+    <string name="contact_state_changed">جهة الاتصال %s</string>
+    <string name="contact_without_phone_number">جهة اتصال من دون رقم هاتف</string>
+    <string name="contacts_permission_denied">❌ رُفض إذن جهات الاتصال</string>
+    <string name="contacts_permission_granted">✅ مُنح إذن جهات الاتصال</string>
+    <string name="content_description_back">رجوع</string>
+    <string name="content_description_check_app">التحقق من سلامة التطبيق</string>
+    <string name="content_description_expand">توسيع/طي</string>
+    <string name="content_description_generate_auto_password">إنشاء كلمة مرور تلقائية</string>
+    <string name="content_description_new_chat">محادثة جديدة</string>
+    <string name="content_description_notification_sound">أيقونة صوت الإشعار</string>
+    <string name="content_description_search_contacts">البحث عن جهات الاتصال</string>
+    <string name="content_description_toggle_password_visibility">إظهار/إخفاء كلمة المرور</string>
+    <string name="content_description_update_available">يتوفر تحديث</string>
+    <string name="copy_text">نسخ النص</string>
+    <string name="could_not_compute_apk_hash">خطأ في الحساب أثناء التحقق من التطبيق</string>
+    <string name="could_not_download_sha_file">يتعذر تنزيل ملف SHA للتحقق من التطبيق - لا يوجد اتصال!</string>
+    <string name="create_chat_message">اختر نوع المحادثة المراد إنشاؤها</string>
+    <string name="create_chat_title">إنشاء محادثة جديدة</string>
+    <string name="create_sms_chat_button">إنشاء محادثة SMS</string>
+    <string name="create_y_chat_button">إنشاء محادثة Y</string>
+    <string name="current_version">الإصدار الحالي: %s</string>
+    <string name="data_security">أمان بياناتك</string>
+    <string name="date_of_esport">تاريخ التصدير</string>
+    <string name="db_critical_error">خطأ فادح في قاعدة البيانات</string>
+    <string name="db_critical_error_expl">يتعذر بدء التطبيق
+
+جرّب إعادة التشغيل.
+
+اتصل بالمطوّر إذا استمر الخطأ</string>
+    <string name="deactivated">معطّل</string>
+    <string name="debug_failures_hint">الأخطاء والتعطلات الأخيرة لأغراض التصحيح. المس لعرض التفاصيل.</string>
+    <string name="decoded_message_placeholder">رسالة مفكوكة التشفير</string>
+    <string name="decoded_message_preview_placeholder">نص الرسالة المفكوكة التشفير…</string>
+    <string name="decrypted_on_other_side">✓ فُكّ تشفيرها لدى الطرف الآخر</string>
+    <string name="decryption_failed_on_other_side">✗ فشل فك التشفير لدى الطرف الآخر</string>
+    <string name="default_button">افتراضي</string>
+    <string name="default_lists_restored">تمت استعادة القوائم الافتراضية</string>
+    <string name="default_sound">افتراضي</string>
+    <string name="delete_chat">❌ حذف المحادثة</string>
+    <string name="delete_chat_message">هل تريد حقًا حذف المحادثة مع %s بالكامل؟</string>
+    <string name="delete_chat_question">حذف المحادثة؟</string>
+    <string name="delete_message">حذف الرسالة</string>
+    <string name="delete_message_question">حذف الرسالة؟</string>
+    <string name="dialog_import_title">استيراد محادثة</string>
+    <string name="disable_pure_sms_for_updates">تعطيل وضع SMS فقط للتحقق من التحديثات</string>
+    <string name="disclaimer_agree">قبول ومتابعة</string>
+    <string name="disclaimer_exit">إلغاء وخروج</string>
+    <string name="disclaimer_further_permits">يحتاج NooK أيضًا إلى الأذونات التالية:
+
+• جهات الاتصال
+(لتحديد جهات اتصال موثوقة للمحادثات)
+
+• الرسائل القصيرة
+(للاستلام/القراءة/الإرسال)</string>
+    <string name="disclaimer_message">يحمي NooK Messenger رسائلك القصيرة بتشفير قوي شامل بين الطرفين (AES-256-GCM).
+
+⚠️ بالمتابعة، فإنك تقر بأنك فهمت وتقبل ما يلي:
+
+الامتثال القانوني: أنت المسؤول الوحيد عن الامتثال للقوانين المتعلقة باستخدام التشفير في نطاق ولايتك القضائية.
+
+الاستخدام المشروع: صُممت هذه الأداة للخصوصية الشخصية فقط. ويُحظر بشدة أي استخدام غير قانوني.
+
+القيود التقنية: تظل بيانات تعريف SMS القياسية (أرقام الهاتف والطوابع الزمنية) مرئية لمشغّل الشبكة لديك.
+
+متطلب المستلِم: يجب على المستلِم أيضًا استخدام NooK لقراءة رسائلك المشفرة.
+
+يحدد مالك تطبيق NooK جهات الاتصال الموثوقة التي يفك NooK - عند تشغيله - تشفير رسائل SMS الواردة منها والمشفّرة بواسطة تطبيق NooK آخر.
+
+🔐 الأذونات المطلوبة &amp; السبب:
+
+SMS: لإرسال واستقبال الرسائل المشفرة.
+
+جهات الاتصال: لاختيار المستلمين واستخدام أرقام هواتفهم لإنشاء محادثات مشفرة.
+
+الهاتف (قراءة حالة الهاتف): (حتى Android 16) لتحديد رقم هاتفك ضمن عملية التشفير.
+
+الموقع: فقط عند الضغط على زر 📍 لإرسال موقعك إلى شريكك.
+
+الوسائط: إذا أجريت نسخة احتياطية لمحادثة أو استعادتها، يحتاج NooK إلى إذن القراءة والكتابة على ملفات جهازك.
+
+NooK مفتوح المصدر، ولا يجمع البيانات أو يشاركها.
+
+انتبه دائمًا إلى:
+
+a) لوحة المفاتيح التي تستخدمها (بعض لوحات المفاتيح تشارك ما تكتبه!)
+B) لقطات الشاشة التي قد تلتقطها تطبيقات أخرى من دون علمك (فعّل الحماية في NooK)،
+C) الحافظة، التي تشارك النصوص مع التطبيق الحاصل على الإذن!
+
+🚨 تحذير بشأن السلامة والمسؤولية:
+
+اختُبر التطبيق لأشهر على أجهزة Samsung وGoogle Pixel.
+
+ومع ذلك، استخدم هذا التطبيق على مسؤوليتك الخاصة.
+
+يمكن للتطبيق، كأي برنامج نشط، أن يسهم في زيادة استخدام المعالج واستهلاك البطارية وما ينتج عنه من ارتفاع حرارة الجهاز، ولا سيما عند استخدامه مع تطبيقات أخرى أو في ظروف بيئية قاسية (مثل ضوء الشمس المباشر).
+
+لا يجوز بأي حال تحميل مطوّر NooK أو المساهمين فيه المسؤولية عن أي أضرار مباشرة أو غير مباشرة تلحق بجهازك، بما في ذلك على سبيل المثال لا الحصر: السخونة غير الطبيعية، وتلف البطارية، وفقدان البيانات، والأعطال، وانفجارات البطارية، والحرائق، أو الإصابات الشخصية الناجمة عن استخدام هذا التطبيق.
+
+تقع على عاتقك وحدك مسؤولية:
+1. مراقبة حالة هاتفك أو جهازك اللوحي أثناء الاستخدام.
+2. استخدام البطاريات والشواحن الأصلية أو المعتمدة فقط.
+3. إيقاف الاستخدام فورًا وإطفاء الجهاز عند ارتفاع حرارته.
+4. ضمان التهوية الكافية للجهاز.
+5. استخدام التطبيق وفقًا لإرشادات الشركة المصنّعة للجهاز.</string>
+    <string name="disclaimer_title">مرحبًا بك في NooK!
+إشعار قانوني</string>
+    <string name="do_you_really_want_to_delete_this_message">هل تريد حقًا حذف هذه الرسالة؟</string>
+    <string name="donotshowthisagain">لا تعرض هذا مجددًا</string>
+    <string name="downgrade_warning_message">⚠️ لقد اخترت الإصدار %1$s، وهو أقدم من الإصدار الحالي %2$s.
+
+إذا تابعت، يجب عليك أولًا إلغاء تثبيت الإصدار الحالي، مما يؤدي إلى فقدان البيانات والمحادثات. أنشئ نسخة احتياطية من المحادثات المهمة أولًا. هل تؤكد رغبتك في الرجوع إلى إصدار أقدم؟</string>
+    <string name="download">تنزيل</string>
+    <string name="download_failed">فشل التنزيل: %s</string>
+    <string name="download_failed_empty_file">فشل تنزيل الإصدار (فارغ)</string>
+    <string name="download_location">موقع APK في مجلد التنزيلات:</string>
+    <string name="downloading">جارٍ التنزيل… %d%%</string>
+    <string name="downloading_version">جارٍ تنزيل الإصدار: %s</string>
+    <string name="edit">تعديل</string>
+    <string name="edit_chat_name">✏️ تعديل اسم المحادثة</string>
+    <string name="edit_keyboard">تعديل لوحة المفاتيح: %s</string>
+    <string name="empty_password_error">كلمة المرور الفارغة غير صالحة لـ SiSa</string>
+    <string name="enable_log_title">تمكين السجل/الإشعارات المنبثقة</string>
+    <string name="encoding_password_generated">تم إنشاء كلمة مرور الترميز</string>
+    <string name="encoding_password_hint">أدخل كلمة مرور للترميز</string>
+    <string name="encoding_password_info">كلمة مرور لـ %1$s (بحد أدنى %2$d حرفًا)</string>
+    <string name="encoding_password_info_default">كلمة مرور للترميز المحدد</string>
+    <string name="encoding_password_label">كلمة مرور للترميز</string>
+    <string name="encoding_password_too_short">كلمة مرور الترميز قصيرة جدًا، الحد الأدنى %1$d حرفًا</string>
+    <string name="encoding_set">تم إعداد ترميز %1$s</string>
+    <string name="encoding_title">الترميز</string>
+    <string name="encryption_for_contact">التشفير/الترميز لـ:
+%s</string>
+    <string name="encryption_scheme_title">نظام التشفير:</string>
+    <string name="encryption_title">التشفير</string>
+    <string name="error">خطأ</string>
+    <string name="error_a11y_label">خطأ: غير صالح</string>
+    <string name="error_chat_invalid">خطأ: المحادثة غير صالحة</string>
+    <string name="error_checking_alarm">خطأ في التحقق من المنبّه</string>
+    <string name="error_encrypting_password">خطأ أثناء تشفير كلمة المرور في الذاكرة</string>
+    <string name="error_filepicker">خطأ في منتقي الملفات</string>
+    <string name="error_generating_keys">❌ خطأ: %s</string>
+    <string name="error_generic">❌ خطأ في إعداد الحماية</string>
+    <string name="error_icon_content_description">خطأ</string>
+    <string name="error_imposs_reprod_sound">خطأ: يتعذر تشغيل الصوت</string>
+    <string name="error_opening_folder">خطأ في فتح المجلد</string>
+    <string name="error_opening_settings_manual">افتح يدويًا: الإعدادات ← التطبيقات ← NooK ← الأذونات</string>
+    <string name="error_reading_contact_data">يتعذر قراءة بيانات جهة الاتصال</string>
+    <string name="error_reading_contacts">خطأ في قراءة جهات الاتصال</string>
+    <string name="error_reading_contacts_with_message">خطأ في قراءة جهات الاتصال: %s</string>
+    <string name="error_reading_installed_keyboards">خطأ في قراءة لوحات المفاتيح المثبتة</string>
+    <string name="error_registering_receiver">خطأ في تسجيل المستقبِل</string>
+    <string name="error_renaming_chat">خطأ أثناء إعادة تسمية المحادثة</string>
+    <string name="error_silent_notifications">إشعارات صامتة</string>
+    <string name="errorloadingmessages">خطأ أثناء تحميل الرسائل</string>
+    <string name="errorsavingkconfig">خطأ في حفظ التهيئة: %s</string>
+    <string name="errorscaningfor">خطأ أثناء الفحص لـ %1$s: %2$s</string>
+    <string name="errorwhilechatdeleting">خطأ أثناء حذف المحادثة</string>
+    <string name="exit">خروج</string>
+    <string name="export_encrypted_chat">📤 تصدير المحادثة</string>
+    <string name="export_failed">خطأ أثناء تصدير المحادثة</string>
+    <string name="export_no_messages">لا توجد رسائل للتصدير</string>
+    <string name="export_pw_procedi">متابعة</string>
+    <string name="export_pwgeb_16chars">إنشاء كلمة مرور</string>
+    <string name="export_pwhint_16chars">كلمة المرور (16 حرفًا كحد أدنى)</string>
+    <string name="export_security_warning">&lt;Strong&gt;تحذير أمني:&lt;/strong&gt; يحتوي هذا الملف على رسائل شخصية. احتفظ به بأمان.</string>
+    <string name="exported_by">تم التصدير بواسطة</string>
+    <string name="exposed_dropdown_menu_content_description">إظهار القائمة المنسدلة</string>
+    <string name="extend_to_all_contacts_title">التوسيع إلى جميع جهات الاتصال</string>
+    <string name="fab_transformation_scrim_behavior">com.google.android.material.transformation.FabTransformationScrimBehavior</string>
+    <string name="fab_transformation_sheet_behavior">com.google.android.material.transformation.FabTransformationSheetBehavior</string>
+    <string name="file_not_found">لم يتم العثور على الملف</string>
+    <string name="font_size_set_to">حجم الخط: %d</string>
+    <string name="generated">مُنشأ</string>
+    <string name="getting_location">جارٍ الحصول على الموقع</string>
+    <string name="grant_permission_button">منح الإذن</string>
+    <string name="hide_bottom_view_on_scroll_behavior">com.google.android.material.behavior.HideBottomViewOnScrollBehavior</string>
+    <string name="highrisk_root_expl">⚠️ تحذير: الجهاز حاصل على صلاحيات الجذر وبوتلودر مفتوح.
+
+يمثل هذا الإعداد خطرًا أمنيًا عاليًا. قد تحصل التطبيقات على وصول كامل إلى النظام.
+
+توصيات:
+• استخدم تطبيقات من مصادر موثوقة فقط
+• فكّر في إزالة صلاحيات الجذر للاستخدام اليومي
+• حافظ على تحديث جهازك</string>
+    <string name="hourstoscansms_72">الساعات المراد فحصها (مثال: 72)</string>
+    <string name="howmanyhoursbackcheck">كم ساعة مضت تريد فحصها؟</string>
+    <string name="i_am_here">أنا هنا 📍</string>
+    <string name="i_understand">فهمت</string>
+    <string name="icon_content_description">أيقونة مربع الحوار</string>
+    <string name="ignore_once">⚠️ تجاهل الآن</string>
+    <string name="import_decompression_failed">فشل فك ضغط ZIP</string>
+    <string name="import_encrypted_chat">📥 استيراد محادثة</string>
+    <string name="import_error_temp_folder">خطأ في إنشاء المجلد المؤقت</string>
+    <string name="import_explanation">مهم: لإعادة قراءة/فك ترميز رسائل SMS المشفرة أو المرمزة المفقودة من المحادثة على نحو صحيح، يجب ألا تكون معلمات التشفير والترميز في NooK قد تغيرت</string>
+    <string name="import_failed">فشل الاستيراد</string>
+    <string name="import_file_path_error">خطأ في مسار الملف</string>
+    <string name="import_invalid_file_format">تنسيق الملف غير مدعوم. استخدم ‎.nook أو ‎.zip</string>
+    <string name="import_invalid_json">ملف JSON غير صالح</string>
+    <string name="import_no_file_selected">لم يُحدد ملف للاستيراد</string>
+    <string name="import_no_json_found">لم يتم العثور على ملف JSON في الأرشيف</string>
+    <string name="import_no_messages_imported">لم تُستورد أي رسالة جديدة</string>
+    <string name="import_old_version_warning">إصدار قديم من ملف الاستيراد</string>
+    <string name="import_password_required">يلزم إدخال كلمة مرور للملف المشفر (.nook)</string>
+    <string name="import_success">اكتمل الاستيراد: تم استيراد %d رسالة</string>
+    <string name="imported_chat">محادثة مستوردة</string>
+    <string name="imposs_opening_sound_picker">يتعذر فتح منتقي الأصوات</string>
+    <string name="incoming_message_placeholder">رسالة واردة</string>
+    <string name="init_status_complete">✅ NooK جاهز!</string>
+    <string name="init_status_contacts">📱 جارٍ تحميل جهات الاتصال...</string>
+    <string name="init_status_database">💾 جارٍ تهيئة قاعدة البيانات واختبارها...</string>
+    <string name="init_status_final">✨ جاهز تقريبًا...</string>
+    <string name="init_status_keyboard">⌨️ جارٍ إعداد أمان لوحة المفاتيح...</string>
+    <string name="init_status_notifications">🔔 جارٍ إعداد الإشعارات...</string>
+    <string name="init_status_permissions">🔐 جارٍ التحقق من أذونات التطبيق...</string>
+    <string name="init_status_sha">🔒 جارٍ التحقق من سلامة التطبيق...</string>
+    <string name="init_status_starting">🚀 جارٍ بدء NooK...</string>
+    <string name="init_status_ui">🖥️ جارٍ تهيئة واجهة المستخدم...</string>
+    <string name="init_status_waiting_db">⏳ انتظار قاعدة البيانات... (%1$d/%2$d)</string>
+    <string name="insert_a_valid_number">أدخل رقمًا صالحًا</string>
+    <string name="install_apk_chooser_title">ثبّت تحديث NooK باستخدام:
+</string>
+    <string name="installation_indication_apk_saved_in">حُفظ APK في %s
+
+في مستكشف الملفات (التنزيلات)، المس الملف لتثبيته.</string>
+    <string name="interlocutor">المحاوَر</string>
+    <string name="invalid_password">❌ كلمة مرور غير صالحة</string>
+    <string name="item_view_role_description">علامة تبويب</string>
+    <string name="keyboard">لوحة المفاتيح</string>
+    <string name="keyboard_added_manually_to_blacklist">أُضيفت يدويًا إلى القائمة السوداء</string>
+    <string name="keyboard_added_manually_to_whitelist">أُضيفت يدويًا إلى القائمة البيضاء</string>
+    <string name="keyboard_approved">تمت الموافقة على لوحة المفاتيح «%s» وإضافتها إلى القائمة البيضاء (يمكن إزالتها من الإعدادات)</string>
+    <string name="keyboard_details">تفاصيل لوحة المفاتيح</string>
+    <string name="keyboard_rejected">رُفضت لوحة المفاتيح «%s» وأُضيفت إلى القائمة السوداء</string>
+    <string name="keyboard_rejected_log">⚠️ رُفضت لوحة المفاتيح - عُرض التنبيه بالفعل</string>
+    <string name="keyboard_removed">أُزيلت لوحة المفاتيح</string>
+    <string name="keyboard_safe_log">✅ لوحة مفاتيح آمنة</string>
+    <string name="keyboard_security_alert_blacklisted_message">لوحة المفاتيح «%1$s» (%2$s) مدرجة ضمن القائمة السوداء للوحات المفاتيح المعروفة بمشكلات الأمان. يُنصح بشدة بتغيير لوحة المفاتيح.</string>
+    <string name="keyboard_security_alert_blacklisted_title">⚠️ اكتشاف لوحة مفاتيح غير آمنة</string>
+    <string name="keyboard_security_alert_unknown_message">لوحة المفاتيح «%1$s» (%2$s) غير مدرجة ضمن قائمة لوحات المفاتيح المختبرة والمعتمدة. تأكد من موثوقيتها قبل إدخال بيانات حساسة.</string>
+    <string name="keyboard_security_alert_unknown_title">⚠️ لوحة مفاتيح غير معروفة</string>
+    <string name="keyboard_temporarily_ignored">⚠️ تم تجاهل لوحة المفاتيح %s مؤقتًا</string>
+    <string name="keyboard_unknown">غير معروفة</string>
+    <string name="keyboard_unknown_log">⚠️ لوحة مفاتيح غير معروفة - عُرض التنبيه بالفعل</string>
+    <string name="keyboard_unknown_warning">⚠️ لوحة مفاتيح غير معروفة. تحقّق من موثوقيتها.</string>
+    <string name="keyboard_unsafe_warning">⚠️ تحذير: لوحة مفاتيح غير آمنة قيد الاستخدام!</string>
+    <string name="keyboard_warning_ignore">تجاهل</string>
+    <string name="keyboard_warning_ignored">تم تجاهل التحذير</string>
+    <string name="keyboard_warning_manage">إدارة القائمة البيضاء</string>
+    <string name="keyboard_warning_message">لوحة المفاتيح الحالية غير آمنة:
+
+• لوحة المفاتيح: %1$s
+• المعرّف: %2$s
+
+قد تسجل ما تكتبه.
+يُوصى بتغيير لوحة المفاتيح من الإعدادات.</string>
+    <string name="keyboard_warning_open_settings">فتح الإعدادات</string>
+    <string name="keyboard_warning_title">⚠️ تحذير أمان لوحة المفاتيح</string>
+    <string name="keyboards_managed">لوحات المفاتيح المُدارة: %d</string>
+    <string name="keys_generated_success">✅ المفاتيح %s</string>
+    <string name="last_message_placeholder">آخر رسالة…</string>
+    <string name="lasthours_scan_days">
+… خلال الأيام %d الماضية</string>
+    <string name="lasthours_scan_hours">… خلال الساعات %d الماضية</string>
+    <string name="latest_version">أحدث إصدار: %s</string>
+    <string name="load_last_message">عرض آخر رسالة</string>
+    <string name="load_last_with_count">عرض آخر %d رسائل</string>
+    <string name="load_more_messages">تحميل مزيد من الرسائل…</string>
+    <string name="load_more_with_count">عرض %1$d رسالة إضافية (من أصل %2$d متبقية)</string>
+    <string name="loading_messages">جارٍ التحميل…</string>
+    <string name="location_error">خطأ في الحصول على الموقع. حاول مجددًا.</string>
+    <string name="location_not_available">الموقع غير متاح. حاول مجددًا.</string>
+    <string name="location_permission_required">يلزم إذن الموقع لمشاركة موقعك.</string>
+    <string name="location_sent">أُرسل الموقع: %.4f، %.4f</string>
+    <string name="location_services_disabled">خدمات الموقع معطلة</string>
+    <string name="location_services_disabled_message">فعّل خدمات الموقع لمشاركة موقعك الحالي.</string>
+    <string name="location_timeout">انتهت مهلة طلب الموقع. حاول مجددًا.</string>
+    <string name="log_status">السجل %s</string>
+    <string name="m3_exceed_max_badge_text_suffix">%1$s%2$s</string>
+    <string name="m3_ref_typeface_brand_medium">sans-serif-medium</string>
+    <string name="m3_ref_typeface_brand_regular">sans-serif</string>
+    <string name="m3_ref_typeface_plain_medium">sans-serif-medium</string>
+    <string name="m3_ref_typeface_plain_regular">sans-serif</string>
+    <string name="m3_sys_motion_easing_emphasized">path(M 0,0 C 0.05, 0, 0.133333, 0.06, 0.166666, 0.4 C 0.208333, 0.82, 0.25, 1, 1, 1)</string>
+    <string name="m3_sys_motion_easing_emphasized_accelerate">cubic-bezier(0.3, 0, 0.8, 0.2)</string>
+    <string name="m3_sys_motion_easing_emphasized_decelerate">cubic-bezier(0.1, 0.7, 0.1, 1)</string>
+    <string name="m3_sys_motion_easing_emphasized_path_data">M 0,0 C 0.05, 0, 0.133333, 0.06, 0.166666, 0.4 C 0.208333, 0.82, 0.25, 1, 1, 1</string>
+    <string name="m3_sys_motion_easing_legacy">cubic-bezier(0.4, 0, 0.2, 1)</string>
+    <string name="m3_sys_motion_easing_legacy_accelerate">cubic-bezier(0.4, 0, 1, 1)</string>
+    <string name="m3_sys_motion_easing_legacy_decelerate">cubic-bezier(0, 0, 0.2, 1)</string>
+    <string name="m3_sys_motion_easing_linear">cubic-bezier(0, 0, 1, 1)</string>
+    <string name="m3_sys_motion_easing_standard">cubic-bezier(0.2, 0, 0, 1)</string>
+    <string name="m3_sys_motion_easing_standard_accelerate">cubic-bezier(0.3, 0, 1, 1)</string>
+    <string name="m3_sys_motion_easing_standard_decelerate">cubic-bezier(0, 0, 0.2, 1)</string>
+    <string name="manage_keyboards">NooK - إدارة لوحات المفاتيح</string>
+    <string name="manage_keyboards_button">📋 إدارة لوحات المفاتيح</string>
+    <string name="manage_trusted_contacts_button">جهات الاتصال الموثوقة</string>
+    <string name="manual_install_instructions">تعليمات التثبيت اليدوي لـ %s</string>
+    <string name="manual_installation">تثبيت يدوي</string>
+    <string name="manually_approved_by_user">اعتمده المستخدم يدويًا في %s</string>
+    <string name="manually_approved_from_settings">اعتُمد يدويًا من الإعدادات</string>
+    <string name="manually_modified">عُدّل يدويًا</string>
+    <string name="manually_rejected_by_user">رفضه المستخدم يدويًا في %s</string>
+    <string name="maps3d_lat_lng_alt_format">خط العرض: %1$.2f، خط الطول: %2$.2f، الارتفاع: %3$.2f</string>
+    <string name="maps3d_loading">جارٍ التحميل…</string>
+    <string name="mark_as_read_toast">تم وضع علامة مقروء على الرسائل</string>
+    <string name="material_clock_display_divider">:</string>
+    <string name="material_clock_toggle_content_description">اختيار ص أو م</string>
+    <string name="material_hour_24h_suffix">%1$s ساعة</string>
+    <string name="material_hour_selection">اختيار الساعة</string>
+    <string name="material_hour_suffix">الساعة %1$s</string>
+    <string name="material_minute_selection">اختيار الدقائق</string>
+    <string name="material_minute_suffix">%1$s دقيقة</string>
+    <string name="material_motion_easing_accelerated">cubic-bezier(0.4, 0.0, 1.0, 1.0)</string>
+    <string name="material_motion_easing_decelerated">cubic-bezier(0.0, 0.0, 0.2, 1.0)</string>
+    <string name="material_motion_easing_emphasized">path(M 0,0 C 0.05, 0, 0.133333, 0.06, 0.166666, 0.4 C 0.208333, 0.82, 0.25, 1, 1, 1)</string>
+    <string name="material_motion_easing_linear">cubic-bezier(0.0, 0.0, 1.0, 1.0)</string>
+    <string name="material_motion_easing_standard">cubic-bezier(0.4, 0.0, 0.2, 1.0)</string>
+    <string name="material_slider_range_end">نهاية النطاق</string>
+    <string name="material_slider_range_start">بداية النطاق</string>
+    <string name="material_slider_value">القيمة</string>
+    <string name="material_timepicker_am">ص</string>
+    <string name="material_timepicker_clock_mode_description">التبديل إلى وضع الساعة لإدخال الوقت.</string>
+    <string name="material_timepicker_hour">ساعة</string>
+    <string name="material_timepicker_minute">دقيقة</string>
+    <string name="material_timepicker_pm">م</string>
+    <string name="material_timepicker_select_time">اختيار الوقت</string>
+    <string name="material_timepicker_text_input_mode_description">التبديل إلى وضع إدخال النص لإدخال الوقت.</string>
+    <string name="max_font_size_reached">تم بلوغ الحد الأقصى لحجم الخط</string>
+    <string name="menu_copy_safe">نسخ آمن</string>
+    <string name="menu_resend_msg">إعادة إرسال الرسالة</string>
+    <string name="message">رسالة</string>
+    <string name="message_input_hint">اكتب رسالة…</string>
+    <string name="message_sent">✅ أُرسلت الرسالة عبر SMS</string>
+    <string name="messages">الرسائل</string>
+    <string name="middlerisk_root_expl">⚠️ تحذير: الجهاز حاصل على صلاحيات الجذر أو بوتلودر مفتوح.
+
+يزيد هذا الإعداد مخاطر أمان التطبيقات.
+
+نصائح:
+• راقب أذونات التطبيقات
+• استخدم جدارًا ناريًا للتحكم في الوصول إلى الإنترنت
+• أنشئ نسخًا احتياطية منتظمة من البيانات المهمة</string>
+    <string name="min_font_size_reached">تم بلوغ الحد الأدنى لحجم الخط</string>
+    <string name="mtrl_badge_numberless_content_description">إشعار جديد</string>
+    <string name="mtrl_checkbox_button_icon_path_checked">M14,18.2 11.4,15.6 10,17 14,21 22,13 20.6,11.6z</string>
+    <string name="mtrl_checkbox_button_icon_path_group_name">icon</string>
+    <string name="mtrl_checkbox_button_icon_path_indeterminate">M13.4,15 11,15 11,17 13.4,17 21,17 21,15z</string>
+    <string name="mtrl_checkbox_button_icon_path_name">icon path</string>
+    <string name="mtrl_checkbox_button_path_checked">M23,7H9C7.9,7,7,7.9,7,9v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V9C25,7.9,24.1,7,23,7z</string>
+    <string name="mtrl_checkbox_button_path_group_name">button</string>
+    <string name="mtrl_checkbox_button_path_name">button path</string>
+    <string name="mtrl_checkbox_button_path_unchecked">M23,7H9C7.9,7,7,7.9,7,9v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V9C25,7.9,24.1,7,23,7z M23,23H9V9h14V23z</string>
+    <string name="mtrl_checkbox_state_description_checked">محدد</string>
+    <string name="mtrl_checkbox_state_description_indeterminate">محدد جزئيًا</string>
+    <string name="mtrl_checkbox_state_description_unchecked">غير محدد</string>
+    <string name="mtrl_chip_close_icon_content_description">إزالة %1$s</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">أكثر من %1$d إشعار جديد</string>
+    <string name="mtrl_exceed_max_badge_number_suffix">%1$d%2$s</string>
+    <string name="mtrl_picker_a11y_next_month">الانتقال إلى الشهر التالي</string>
+    <string name="mtrl_picker_a11y_prev_month">الانتقال إلى الشهر السابق</string>
+    <string name="mtrl_picker_announce_current_range_selection">تحديد تاريخ البدء: %1$s – تحديد تاريخ الانتهاء: %2$s</string>
+    <string name="mtrl_picker_announce_current_selection">التحديد الحالي: %1$s</string>
+    <string name="mtrl_picker_announce_current_selection_none">لا شيء</string>
+    <string name="mtrl_picker_cancel">إلغاء</string>
+    <string name="mtrl_picker_confirm">موافق</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">اختيار التاريخ</string>
+    <string name="mtrl_picker_date_header_unselected">التاريخ المحدد</string>
+    <string name="mtrl_picker_day_of_week_column_header">عمود الأيام: %1$s</string>
+    <string name="mtrl_picker_end_date_description">تاريخ الانتهاء %1$s</string>
+    <string name="mtrl_picker_invalid_format">تنسيق غير صالح.</string>
+    <string name="mtrl_picker_invalid_format_example">مثال: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">استخدم: %1$s</string>
+    <string name="mtrl_picker_invalid_range">نطاق غير صالح.</string>
+    <string name="mtrl_picker_navigate_to_current_year_description">الانتقال إلى السنة الحالية %1$d</string>
+    <string name="mtrl_picker_navigate_to_year_description">الانتقال إلى السنة %1$d</string>
+    <string name="mtrl_picker_out_of_range">خارج النطاق: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">تاريخ البدء – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – تاريخ الانتهاء</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_title">اختيار نطاق</string>
+    <string name="mtrl_picker_range_header_unselected">تاريخ البدء – تاريخ الانتهاء</string>
+    <string name="mtrl_picker_save">حفظ</string>
+    <string name="mtrl_picker_start_date_description">تاريخ البدء %1$s</string>
+    <string name="mtrl_picker_text_input_date_hint">التاريخ</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">تاريخ الانتهاء</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">تاريخ البدء</string>
+    <string name="mtrl_picker_text_input_day_abbr">ي</string>
+    <string name="mtrl_picker_text_input_month_abbr">ش</string>
+    <string name="mtrl_picker_text_input_year_abbr">س</string>
+    <string name="mtrl_picker_today_description">اليوم %1$s</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">التبديل إلى وضع إدخال التقويم</string>
+    <string name="mtrl_picker_toggle_to_day_selection">المس للتبديل إلى عرض التقويم</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">التبديل إلى وضع إدخال النص</string>
+    <string name="mtrl_picker_toggle_to_year_selection">المس للتبديل إلى عرض السنة</string>
+    <string name="mtrl_switch_thumb_group_name">circle_group</string>
+    <string name="mtrl_switch_thumb_path_checked">M4,16 A12,12 0 0,1 16,4 H16 A12,12 0 0,1 16,28 H16 A12,12 0 0,1 4,16</string>
+    <string name="mtrl_switch_thumb_path_morphing">M0,16 A11,11 0 0,1 11,5 H21 A11,11 0 0,1 21,27 H11 A11,11 0 0,1 0,16</string>
+    <string name="mtrl_switch_thumb_path_name">circle</string>
+    <string name="mtrl_switch_thumb_path_pressed">M2,16 A14,14 0 0,1 16,2 H16 A14,14 0 0,1 16,30 H16 A14,14 0 0,1 2,16</string>
+    <string name="mtrl_switch_thumb_path_unchecked">M8,16 A8,8 0 0,1 16,8 H16 A8,8 0 0,1 16,24 H16 A8,8 0 0,1 8,16</string>
+    <string name="mtrl_switch_track_decoration_path">M1,16 A15,15 0 0,1 16,1 H36 A15,15 0 0,1 36,31 H16 A15,15 0 0,1 1,16</string>
+    <string name="mtrl_switch_track_path">M0,16 A16,16 0 0,1 16,0 H36 A16,16 0 0,1 36,32 H16 A16,16 0 0,1 0,16</string>
+    <string name="mtrl_timepicker_cancel">إلغاء</string>
+    <string name="mtrl_timepicker_confirm">موافق</string>
+    <string name="new_message_from">رسالة جديدة من: %s</string>
+    <string name="new_version_available">حدّثني</string>
+    <string name="no">لا</string>
+    <string name="no_more_messages">(لا توجد رسائل أقدم)</string>
+    <string name="no_more_messages_to_load">تم عرض جميع الرسائل</string>
+    <string name="no_new_versions">لا يتوفر إصدار جديد</string>
+    <string name="no_safe_text_saved_found">لم يُعثر على نص آمن للصق</string>
+    <string name="nook_messenger">NooK مراسل آمن</string>
+    <string name="normal_mode_on">🔔 الوضع العادي قيد التشغيل</string>
+    <string name="notif_sound_modified">تم تعديل صوت الإشعار</string>
+    <string name="notification_channel_description">إشعارات لرسائل SMS وY</string>
+    <string name="notification_channel_name">إشعارات NooK</string>
+    <string name="notification_content">NooK - رسائل SMS بخصوصية حقيقية</string>
+    <string name="notification_pamphlet">استمتع بـ NooK - تطبيق آمن
+مفتوح المصدر على GitHub
+═══════════════════════
+ملاحظة: ⚠️ قد يشير GOOGLE PLAY PROTECT أو غيره من ماسحات الفيروسات خطأً إلى تطبيق آمن بوصفه برمجية ضارة - أي محتمل الضرر - ويدعوك إلى إلغاء تثبيته.</string>
+    <string name="notification_sound_title">صوت إشعار إضافي</string>
+    <string name="notification_title">NooK نشط</string>
+    <string name="number_id">الرقم/المعرّف</string>
+    <string name="number_or_messages">عدد الرسائل</string>
+    <string name="ok">موافق</string>
+    <string name="open_chat">فتح المحادثة</string>
+    <string name="open_downloads_folder">فتح مجلد التنزيلات</string>
+    <string name="open_settings">فتح الإعدادات</string>
+    <string name="open_settings_phone_permission">🔧 انتقل إلى: الأذونات ← الهاتف، ثم عُد إلى هنا</string>
+    <string name="outgoing_message_placeholder">رسالة صادرة</string>
+    <string name="owner_name">اسم المالك</string>
+    <string name="packageId">الحزمة</string>
+    <string name="password">كلمة المرور</string>
+    <string name="password_for_import_must_have_16">يجب أن تتكون كلمة المرور من 16 حرفًا على الأقل</string>
+    <string name="password_hint">كلمة المرور</string>
+    <string name="password_info_text">ستُستخدم كلمة مرور العلاقة لإنشاء مفاتيح DH لدعم اتصال مشفّر بـ AES-256. شاركها بطريقة آمنة</string>
+    <string name="password_relationship_hint">اتركه فارغًا للإنشاء التلقائي</string>
+    <string name="password_toggle_content_description">إظهار كلمة المرور</string>
+    <string name="paste">لصق</string>
+    <string name="paste_safe">لصق آمن</string>
+    <string name="path_password_eye">M12,4.5C7,4.5 2.73,7.61 1,12c1.73,4.39 6,7.5 11,7.5s9.27,-3.11 11,-7.5c-1.73,-4.39 -6,-7.5 -11,-7.5zM12,17c-2.76,0 -5,-2.24 -5,-5s2.24,-5 5,-5 5,2.24 5,5 -2.24,5 -5,5zM12,9c-1.66,0 -3,1.34 -3,3s1.34,3 3,3 3,-1.34 3,-3 -1.34,-3 -3,-3z</string>
+    <string name="path_password_eye_mask_strike_through">M2,4.27 L19.73,22 L22.27,19.46 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
+    <string name="path_password_eye_mask_visible">M2,4.27 L2,4.27 L4.54,1.73 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
+    <string name="path_password_strike_through">M3.27,4.27 L19.74,20.74</string>
+    <string name="permissions_granted">✅ مُنحت الأذونات</string>
+    <string name="personalized_m">مخصص</string>
+    <string name="personalized_sms_scanning">فحص مخصص لـ %s</string>
+    <string name="phone_state_permission_message">لإنشاء كلمة مرور SiSa تلقائيًا (استنادًا إلى أرقام الهواتف)، يحتاج التطبيق إلى إذن قراءة رقم الجهاز.
+
+امنح إذن «الهاتف» من الإعدادات.</string>
+    <string name="phone_state_permission_title">إذن «الهاتف» مطلوب</string>
+    <string name="plain_text_set">✅ تم تعيين النص العادي</string>
+    <string name="plaintext_message_placeholder">رسالة نص عادي مستلمة</string>
+    <string name="plaintext_warning_message">أنت على وشك إرسال رسالة SMS بنص عادي (غير مشفرة وغير مرمزة).
+
+سيتمكن مشغّل الشبكة من قراءة المحتوى.
+
+هل تريد المتابعة؟</string>
+    <string name="plaintext_warning_title">تحذير أمني</string>
+    <string name="pleasescrolltoendindisclaimer">يُرجى التمرير إلى نهاية إخلاء المسؤولية للمتابعة</string>
+    <string name="proceed">متابعة</string>
+    <string name="pure_sms_active_title">وضع SMS فقط نشط</string>
+    <string name="pure_sms_deactivation_always">دائمًا</string>
+    <string name="pure_sms_deactivation_just_now">الآن فقط</string>
+    <string name="pure_sms_deactivation_message">للتحقق عبر الإنترنت، يجب تعطيل وضع SMS فقط. كيف تريد المتابعة؟</string>
+    <string name="pure_sms_deactivation_title">وضع SMS فقط نشط</string>
+    <string name="pure_sms_description">لا يتصل تلقائيًا بـ GitHub للتحقق من التحديثات أو SHA</string>
+    <string name="pure_sms_mode_active">وضع SMS فقط نشط - لا يوجد اتصال بـ GitHub</string>
+    <string name="pure_sms_mode_inactive">وضع SMS فقط معطّل</string>
+    <string name="pure_sms_permanently_disabled">تم تعطيل وضع SMS فقط بشكل دائم</string>
+    <string name="pure_sms_temporarily_disabled">تم تعطيل وضع SMS فقط مؤقتًا لهذا الفحص</string>
+    <string name="pure_sms_title">وضع SMS فقط</string>
+    <string name="pure_sms_upgrade_message">لتنزيل التحديثات، يجب تعطيل وضع SMS فقط مؤقتًا. كيف تريد المتابعة؟</string>
+    <string name="receipt_sent">تم إرسال التأكيد</string>
+    <string name="receipts_not_requested">✗ لم تُطلب الإيصالات</string>
+    <string name="receipts_requested">✓ طُلبت الإيصالات</string>
+    <string name="receipts_sending_allowed">✓ يُسمح بإرسال الإيصالات</string>
+    <string name="receipts_sending_disabled">✗ إرسال الإيصالات معطّل</string>
+    <string name="regenerated">أُعيد إنشاؤه</string>
+    <string name="regenerating_keys">🔄 جارٍ إعادة إنشاء المفاتيح…</string>
+    <string name="regeneration_suppressed_keys_exist">🔄 تم إيقاف إعادة إنشاء المفاتيح - المفاتيح موجودة بالفعل…</string>
+    <string name="registered_trusted_contacts_title">جهات الاتصال الموثوقة المسجلة</string>
+    <string name="reject">رفض</string>
+    <string name="reject_keyboard">🚫 رفض لوحة المفاتيح هذه</string>
+    <string name="rejected">مرفوضة</string>
+    <string name="relationship_password_title">كلمة مرور التشفير:</string>
+    <string name="remove">🗑️ إزالة</string>
+    <string name="remove_all_contacts_button">🗑️ إزالة كل جهات الاتصال</string>
+    <string name="remove_button_text">إزالة</string>
+    <string name="remove_contact_confirmation">إزالة كل جهات الاتصال؟</string>
+    <string name="remove_contact_message">هل تريد حقًا إزالة كل جهات الاتصال الموثوقة؟</string>
+    <string name="remove_from_lists">إزالة من القوائم</string>
+    <string name="remove_keyboard_message">هل تريد إزالة لوحة المفاتيح «%s» من القوائم؟</string>
+    <string name="remove_keyboard_question">إزالة لوحة المفاتيح؟</string>
+    <string name="removed_default_keyboards">أُزيلت القائمة السوداء للوحات المفاتيح</string>
+    <string name="remporary_ignored_by_user">تجاهلها المستخدم مؤقتًا في %s</string>
+    <string name="request_receipts">طلب تأكيدات فك التشفير</string>
+    <string name="request_receipts_description">اسأل المرسل عما إذا كان قد فك تشفير رسائلك بنجاح</string>
+    <string name="request_receipts_summary">اطلب من الآخرين تأكيد أنهم فكوا تشفير رسائلك</string>
+    <string name="request_receipts_title">طلب إيصالات فك التشفير</string>
+    <string name="rescan_sms_for_this_chat">فحص رسائل SMS لليوم لهذه المحادثة</string>
+    <string name="reset_defaults">استعادة الافتراضيات</string>
+    <string name="reset_defaults_message">هل تريد استعادة القوائم الافتراضية للقائمة البيضاء/السوداء؟</string>
+    <string name="reset_defaults_question">استعادة الافتراضيات؟</string>
+    <string name="reset_to_default">استعادة الإعدادات الافتراضية</string>
+    <string name="reset_to_default_error">خطأ أثناء استعادة إعدادات المحادثة</string>
+    <string name="reset_to_default_message">استعادة إعدادات التشفير والترميز إلى القيم الافتراضية لـ %s؟
+
+سيؤدي ذلك إلى تعيين:
+- بدون تشفير
+- ترميز Base256
+- بدون كلمة مرور للترميز</string>
+    <string name="reset_to_default_success">تمت استعادة المحادثة إلى الإعدادات الافتراضية</string>
+    <string name="reset_to_default_title">استعادة الإعدادات الافتراضية</string>
+    <string name="reset_to_default_values">استعادة القيم الافتراضية</string>
+    <string name="root_detected_title">تحذير أمني:
+تم اكتشاف صلاحيات الجذر</string>
+    <string name="safe_copy_error">خطأ في فك ترميز النص الآمن</string>
+    <string name="safe_copy_success">تم نسخ النص بطريقة آمنة</string>
+    <string name="save">حفظ</string>
+    <string name="scanning">⏳ جارٍ الفحص</string>
+    <string name="scanning_completed">✅ اكتمل فحص SMS</string>
+    <string name="scanning_error">❌ خطأ في الفحص</string>
+    <string name="scanning_error_for">خطأ في الفحص لـ %1$s:
+%2$s</string>
+    <string name="scanning_results_for">📊 نتائج %s:</string>
+    <string name="scanning_sms_decrypted">🔐 رسائل SMS مفكوكة التشفير: %d</string>
+    <string name="scanning_sms_errors">⚠️ أخطاء: %d</string>
+    <string name="scanning_sms_from_of_last_hours">جارٍ فحص رسائل SMS من
+
+%1$s
+
+خلال الساعات %2$d الماضية…</string>
+    <string name="scanning_sms_no_missing_sms">لا توجد رسائل SMS مفقودة من
+%s
+
+خلال الساعات %d الماضية</string>
+    <string name="scanning_sms_no_sms_found">ℹ️ لم يتم العثور على رسائل SMS</string>
+    <string name="scanning_sms_plaintext">📝 رسائل SMS بنص عادي: %d</string>
+    <string name="scanning_sms_present">📋 موجودة مسبقًا: %d</string>
+    <string name="screenshot_permission_message">للسماح بلقطات شاشة للتطبيق، يلزم إزالة قيود الأمان من النافذة. هل تريد المتابعة؟</string>
+    <string name="screenshot_permission_title">إذن لقطات الشاشة</string>
+    <string name="screenshots_enabled">تم تمكين لقطات الشاشة</string>
+    <string name="search_contact_for_chat_title">اختر جهة اتصال لمحادثة SMS</string>
+    <string name="search_contact_for_new_chat_title">اختر جهة اتصال لمحادثة جديدة (الكل)</string>
+    <string name="search_contact_for_trusted_chat_title">اختر جهة اتصال (موثوقة) لمحادثة جديدة</string>
+    <string name="search_contact_to_trust_title">البحث عن جهة اتصال لجعلها موثوقة</string>
+    <string name="search_hint">ابحث عن اسم أو رقم…</string>
+    <string name="search_menu_title">بحث</string>
+    <string name="searchbar_scrolling_view_behavior">com.google.android.material.search.SearchBar$ScrollingViewBehavior</string>
+    <string name="searchview_clear_text_content_description">مسح النص</string>
+    <string name="searchview_navigation_content_description">رجوع</string>
+    <string name="security_warning_message">تنبيه: كلمة المرور التلقائية سهلة وتعمل جيدًا، لكن يسهل على الآخرين تخمينها. وقد يعرّض ذلك خصوصية اتصالاتك للخطر.
+
+هل تريد المتابعة رغم ذلك؟</string>
+    <string name="security_warning_title">⚠️ تحذير أمني</string>
+    <string name="select_contact_hint">اختر جهة اتصال من دفتر عناوين الهاتف</string>
+    <string name="select_file_explorer">اختيار مستكشف الملفات</string>
+    <string name="select_from_phonebook_button">📒 اختيار من دفتر العناوين</string>
+    <string name="select_import_file_message">اختر ملفًا (‎.nook أو ‎.zip) لاستيراده</string>
+    <string name="selected_file_label">ملف المحادثة المحدد</string>
+    <string name="selective_mode_active">✅ الوضع الانتقائي: جهات الاتصال الموثوقة فقط هي النشطة</string>
+    <string name="send_anyway">إرسال على أي حال</string>
+    <string name="send_button_text">➤</string>
+    <string name="sending_sms">جارٍ إرسال SMS...</string>
+    <string name="separator">───</string>
+    <string name="set">تعيين</string>
+    <string name="set_encryption">⚙️ تعيين التشفير/الترميز</string>
+    <string name="settings_section_title">⚙️ الإعدادات</string>
+    <string name="sha_pure_sms_hint">تحقق من مفتاح تبديل وضع SMS فقط وحاول مجددًا</string>
+    <string name="sha_retry_with_internet">أعد المحاولة مع الإنترنت</string>
+    <string name="sha_verification_compromised_message">يبدو أن هذا الإصدار %s من NooK مخترق أو يتعذر التحقق منه؛ من الأفضل إغلاقه وإعادة تنزيله من مصدر آمن ثم إعادة تثبيته</string>
+    <string name="sha_verification_continue_risk">المتابعة من دون</string>
+    <string name="sha_verification_exit">إغلاق التطبيق</string>
+    <string name="sha_verification_no_internet_message">اتصال الإنترنت غير متاح حاليًا</string>
+    <string name="sha_verification_retry">أعد المحاولة مع الإنترنت</string>
+    <string name="sha_verification_title">التحقق من بصمة التطبيق</string>
+    <string name="sha_version_not_found_in_file">لم يتم العثور على إصدار APK في ملف SHA</string>
+    <string name="share_exported_chatfile">مشاركة ملف المحادثة المُصدّر</string>
+    <string name="side_sheet_accessibility_pane_title">اللوحة الجانبية</string>
+    <string name="side_sheet_behavior">com.google.android.material.sidesheet.SideSheetBehavior</string>
+    <string name="silent_mode_on">🔇 الوضع الصامت قيد التشغيل</string>
+    <string name="silent_mode_title">الوضع الصامت</string>
+    <string name="simply_exit_app">إغلاق NooK</string>
+    <string name="sisa_encryption_configured_auto">✅ كلمة مرور تلقائية</string>
+    <string name="sisa_encryption_configured_custom">✅ تم إعداد تشفير SiSa (كلمة مرور مخصصة)</string>
+    <string name="sms_already_pending">الرسالة موجودة بالفعل في قائمة الانتظار</string>
+    <string name="sms_chat_created_with_contact">تم إنشاء محادثة SMS مع %s</string>
+    <string name="sms_duplicate_suppressed">تم منع تكرار SMS (نافذة %d ثوانٍ)</string>
+    <string name="sms_not_sent_bad_phonenumber">لم تُرسل SMS - خطأ في رقم الهاتف المُمرر</string>
+    <string name="sms_processed">✅ رسائل SMS المعالجة: %d</string>
+    <string name="sms_queue_size">قائمة انتظار SMS: %d قيد الانتظار</string>
+    <string name="sms_queued">وضعت SMS في قائمة الانتظار للإرسال</string>
+    <string name="sms_send_error">❌ خطأ في إرسال SMS: %s</string>
+    <string name="sms_send_failed">❌ فشل إرسال SMS</string>
+    <string name="sms_sent">✅ أُرسلت SMS</string>
+    <string name="sms_total_scanned">📨 رسائل SMS المفحوصة: %d</string>
+    <string name="smsscanduration_personalized">مخصص…</string>
+    <string name="some_permissions_denied">❌ رُفضت بعض الأذونات</string>
+    <string name="sort_order_button">الترتيب</string>
+    <string name="sort_order_off">ترتيب: آخر رسالة في الأعلى</string>
+    <string name="sort_order_on">ترتيب: آخر رسالة في الأسفل</string>
+    <string name="sound_selection_dialog_title">اختيار صوت الإشعار</string>
+    <string name="start">بدء</string>
+    <string name="status">الحالة</string>
+    <string name="status_bar_notification_info_overflow">999+</string>
+    <string name="stop_retry">حُظر التطبيق مؤقتًا لأسباب أمنية. حاول لاحقًا.</string>
+    <string name="tap2open">فتح</string>
+    <string name="test_nook_notification">🔔 اختبار إشعار NooK</string>
+    <string name="test_notification_error">خطأ في اختبار الإشعار</string>
+    <string name="test_notification_sent">تم إرسال إشعار الاختبار</string>
+    <string name="test_sound_and_vibration">الصوت: %1$s، الاهتزاز: %2$s</string>
+    <string name="text_copied">تم نسخ النص</string>
+    <string name="toast_cannot_open_browser">يتعذر فتح المتصفح</string>
+    <string name="toast_grant_permissions_later">يمكنك منح الأذونات لاحقًا من الإعدادات</string>
+    <string name="toast_initialization_error">خطأ في التهيئة: %s</string>
+    <string name="toast_notification_permission_granted">تم منح إذن الإشعارات</string>
+    <string name="toast_notifications_may_not_work">قد لا تعمل الإشعارات بصورة صحيحة</string>
+    <string name="toast_screenshot_disabled">تم تعطيل لقطات الشاشة</string>
+    <string name="toast_vibration_disabled">تم تعطيل الاهتزاز</string>
+    <string name="toast_vibration_enabled">تم تمكين الاهتزاز</string>
+    <string name="trusted_contact_added">✅ أُضيفت جهة اتصال موثوقة</string>
+    <string name="trusted_contacts_info">ℹ️ لا يمكن فك تشفير رسائل SMS إلا لجهات الاتصال الموثوقة النشطة. تُتجاهل رسائل SMS لجهات الاتصال الأخرى.</string>
+    <string name="trusted_contacts_title">جهات الاتصال الموثوقة</string>
+    <string name="unknown">غير معروف</string>
+    <string name="unknown_error">خطأ غير معروف</string>
+    <string name="unknown_keyboard">لوحة مفاتيح غير معروفة</string>
+    <string name="unlock">إلغاء القفل</string>
+    <string name="unread">غير مقروءة</string>
+    <string name="update_check_failed">فشل التحقق من التحديثات</string>
+    <string name="update_check_pure_sms">تم تعطيل التحقق من التحديثات (وضع SMS فقط نشط)</string>
+    <string name="update_explanation">⚠️ بعد التنزيل، قد يعرض Android رسالة «مصدر غير معروف» - وهذا طبيعي للتطبيقات التي لا تأتي من Play Store.
+
+ستحتاج إلى:
+• فتح مستكشف الملفات
+• لمس ملف APK الذي نُزّل للتو
+• السماح بالتثبيت إذا طُلب ذلك
+• تثبيت التحديث</string>
+    <string name="update_explanation_complete">✅ اكتمل التنزيل!
+
+حُفظ ملف APK في مجلد التنزيلات.
+
+تابع:
+1. المس ملف APK في مستكشف الملفات لتثبيت التطبيق.
+2. اسمح بالتثبيت إذا لزم الأمر واتبع التعليمات.
+3. شغّل التطبيق من قائمة التطبيقات</string>
+    <string name="upgrade">تحديث</string>
+    <string name="upgrade_dialog_title">تحديث NooK</string>
+    <string name="upgrade_nook_button">تحديث NooK</string>
+    <string name="user">المستخدم</string>
+    <string name="user_blacklist">القائمة السوداء للمستخدم</string>
+    <string name="user_decision">🤔 قرار المستخدم</string>
+    <string name="user_decision_comment">  • تعليق</string>
+    <string name="user_decision_date">  • التاريخ</string>
+    <string name="user_decision_type">  • النوع</string>
+    <string name="user_default_blacklist">القائمة السوداء الافتراضية للمستخدم</string>
+    <string name="user_default_whitelist">القائمة البيضاء الافتراضية للمستخدم</string>
+    <string name="user_nodecision">🤔 لا يوجد قرار مستخدم مسجل</string>
+    <string name="user_whitelist">القائمة البيضاء للمستخدم</string>
+    <string name="vibration_title">الاهتزاز</string>
+    <string name="waiting_for_decryption_receipt">⏳ في انتظار التأكيد</string>
+    <string name="waiting_for_gps">في انتظار إشارة GPS...</string>
+    <string name="write_message_before_sending">اكتب رسالة قبل الإرسال</string>
+    <string name="y_chats_do_not_support_sms_encryption">⚠️ محادثات Y لا تدعم تشفير SMS</string>
+    <string name="yes">نعم</string>
+    <string name="yes_clear_all">نعم، امسح الكل</string>
+    <string name="yes_generate">نعم، أنشئ</string>
+    <string name="yes_remove">نعم، أزل</string>
+    <string name="yes_reset">نعم، استعد</string>
+    <string name="zoom_in">تكبير +</string>
+    <string name="zoom_out">تصغير -</string>
+</resources>
