@@ -532,7 +532,6 @@
     <string name="sending_sms">Versende SMS...</string>
     <string name="error_encrypting_password">Fehler beim Verschlüsseln des Passworts</string>
     <string name="menu_resend_msg">Nachricht erneut senden</string>
-    <string name="debug_failures_hint">Kürzliche Fehler und Abstürze zum Debuggen. Tippen für Details.</string>
     <!-- Receipt status messages -->
     <string name="decrypted_on_other_side">✓ Auf der anderen Seite entschlüsselt</string>
     <string name="decryption_failed_on_other_side">✗ Entschlüsselung auf der anderen Seite fehlgeschlagen</string>
@@ -572,4 +571,23 @@
     <string name="location_error">Fehler beim Ermitteln des Standorts. Bitte versuche es erneut.</string>
     <string name="location_timeout">Zeitüberschreitung bei der Standortanfrage. Bitte versuche es erneut.</string>
     <string name="location_sent">Standort gesendet: %.4f, %.4f</string>
+    <string name="sms_loopback_title">SMS-Loopback-Modus</string>
+    <string name="sms_loopback_summary">SMS umgehen: Nachrichten intern direkt an NooK weiterleiten</string>
+    <string name="pattern_setup_button">Entsperrmuster festlegen</string>
+    <string name="pattern_lock_description">Muster durch Verbinden von mindestens vier Punkten zeichnen</string>
+    <string name="pattern_setup_title">Entsperrmuster festlegen</string>
+    <string name="pattern_setup_message">Zeichne ein Muster, indem du mindestens vier Punkte verbindest.</string>
+    <string name="pattern_setup_confirm">Zeichne das Muster zur Bestätigung erneut.</string>
+    <string name="pattern_setup_too_short">Verbinde mindestens vier Punkte.</string>
+    <string name="pattern_setup_mismatch">Die Muster stimmen nicht überein. Erneut versuchen.</string>
+    <string name="pattern_setup_saved">Entsperrmuster gespeichert.</string>
+    <string name="pattern_unlock_button">Muster</string>
+    <string name="fingerprint_unlock_button">Fingerabdruck</string>
+    <string name="fingerprint_prompt_title">NooK entsperren</string>
+    <string name="fingerprint_prompt_subtitle">Bestätige deinen Fingerabdruck, um fortzufahren.</string>
+    <string name="password_unlock_button">Passwort</string>
+    <string name="sms_loopback_enabled_message">🔁 SMS-Loopback AKTIV – Nachrichten werden nicht per SMS gesendet
+🔴 Rote Leisten aktiviert</string>
+    <string name="sms_loopback_disabled_message">📱 SMS-Loopback INAKTIV – Normaler SMS-Versand
+⚫ Normale Leisten wiederhergestellt</string>
 </resources>

@@ -566,7 +566,6 @@
     <string name="sending_sms">Spedisco SMS...</string>
     <string name="error_encrypting_password">Errore durante la crittografazione in memoria della password</string>
     <string name="menu_resend_msg">Ritrasmetti messaggio</string>
-    <string name="debug_failures_hint">Errori e crash recenti per debug. Tocca per dettagli.</string>
     <!-- Receipt status messages -->
     <string name="decrypted_on_other_side">✓ Decifrato dall\'altra parte</string>
     <string name="decryption_failed_on_other_side">✗ Decifrazione fallita dall\'altra parte</string>
@@ -607,4 +606,23 @@
     <string name="location_error">Errore nel recupero della posizione. Riprova.</string>
     <string name="location_timeout">Richiesta di posizione scaduta. Riprova.</string>
     <string name="location_sent">Posizione inviata: %.4f, %.4f</string>
+    <string name="sms_loopback_title">Modalità loopback SMS</string>
+    <string name="sms_loopback_summary">Bypass SMS: invio interno diretto a NooK</string>
+    <string name="pattern_setup_button">Imposta sequenza di sblocco</string>
+    <string name="pattern_lock_description">Disegna una sequenza collegando almeno quattro punti</string>
+    <string name="pattern_setup_title">Imposta sequenza di sblocco</string>
+    <string name="pattern_setup_message">Disegna una sequenza collegando almeno quattro punti.</string>
+    <string name="pattern_setup_confirm">Disegna di nuovo la sequenza per confermarla.</string>
+    <string name="pattern_setup_too_short">Collega almeno quattro punti.</string>
+    <string name="pattern_setup_mismatch">Le sequenze non corrispondono. Riprova.</string>
+    <string name="pattern_setup_saved">Sequenza di sblocco salvata.</string>
+    <string name="pattern_unlock_button">Sequenza</string>
+    <string name="fingerprint_unlock_button">Impronta digitale</string>
+    <string name="fingerprint_prompt_title">Sblocca NooK</string>
+    <string name="fingerprint_prompt_subtitle">Verifica la tua impronta digitale per continuare.</string>
+    <string name="password_unlock_button">Password</string>
+    <string name="sms_loopback_enabled_message">🔁 SMS Loopback ATTIVO - I messaggi non verranno inviati via SMS
+🔴 Barre rosse attivate</string>
+    <string name="sms_loopback_disabled_message">📱 SMS Loopback DISATTIVO - Invio SMS normale
+⚫ Barre normali ripristinate</string>
 </resources>

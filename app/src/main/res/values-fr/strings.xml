@@ -523,7 +523,6 @@
     <string name="sending_sms">Envoi SMS en cours...</string>
     <string name="error_encrypting_password">Erreur lors du chiffrement du mot de passe en memoire</string>
     <string name="menu_resend_msg">Transmettre à nouveau</string>
-    <string name="debug_failures_hint">Erreurs et plantages récents pour débogage. Appuyez pour détails.</string>
     <!-- Receipt status messages -->
     <string name="decrypted_on_other_side">✓ Déchiffré de l\'autre côté</string>
     <string name="decryption_failed_on_other_side">✗ Échec du déchiffrement de l\'autre côté</string>
@@ -564,4 +563,23 @@
     <string name="location_error">Erreur lors de la récupération de la position. Veuillez réessayer.</string>
     <string name="location_timeout">Délai d\'attente de la demande de position dépassé. Veuillez réessayer.</string>
     <string name="location_sent">Position envoyée : %.4f, %.4f</string>
+    <string name="sms_loopback_title">Mode SMS Loopback</string>
+    <string name="sms_loopback_summary">Contourner les SMS : acheminement interne direct vers NooK</string>
+    <string name="pattern_setup_button">Définir un schéma de déverrouillage</string>
+    <string name="pattern_lock_description">Dessinez un schéma en reliant au moins quatre points</string>
+    <string name="pattern_setup_title">Définir un schéma de déverrouillage</string>
+    <string name="pattern_setup_message">Dessinez un schéma en reliant au moins quatre points.</string>
+    <string name="pattern_setup_confirm">Redessinez le schéma pour le confirmer.</string>
+    <string name="pattern_setup_too_short">Reliez au moins quatre points.</string>
+    <string name="pattern_setup_mismatch">Les schémas ne correspondent pas. Réessayez.</string>
+    <string name="pattern_setup_saved">Schéma de déverrouillage enregistré.</string>
+    <string name="pattern_unlock_button">Schéma</string>
+    <string name="fingerprint_unlock_button">Empreinte digitale</string>
+    <string name="fingerprint_prompt_title">Déverrouiller NooK</string>
+    <string name="fingerprint_prompt_subtitle">Vérifiez votre empreinte digitale pour continuer.</string>
+    <string name="password_unlock_button">Mot de passe</string>
+    <string name="sms_loopback_enabled_message">🔁 SMS Loopback ACTIF – Les messages ne seront pas envoyés par SMS
+🔴 Barres rouges activées</string>
+    <string name="sms_loopback_disabled_message">📱 SMS Loopback INACTIF – Envoi SMS normal
+⚫ Barres normales restaurées</string>
 </resources>

@@ -45,6 +45,7 @@
 
     <!-- Container input password -->
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/password_input_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="12dp"
@@ -64,6 +65,31 @@
             android:textSize="14sp"
             android:imeOptions="actionDone"/>
     </com.google.android.material.card.MaterialCardView>
+
+    <solutions.semweb.nook.PatternLockView
+        android:id="@+id/unlock_pattern_view"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="12dp"
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/pattern_unlock_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/pattern_unlock_button"
+        android:textAllCaps="false"
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/fingerprint_unlock_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/fingerprint_unlock_button"
+        android:textAllCaps="false"
+        android:visibility="gone"/>
 
     <!-- Pulsanti -->
     <LinearLayout

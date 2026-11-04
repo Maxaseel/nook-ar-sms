@@ -406,6 +406,15 @@
                             android:focusable="true"/>
                     </LinearLayout>
 
+                    <Button
+                        android:id="@+id/pattern_setup_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="@string/pattern_setup_button"
+                        android:textAllCaps="false"
+                        android:visibility="gone"/>
+
                     <!-- Control Logging in DEBUG config -->
                     <LinearLayout
                         android:id="@+id/log_toggle_container"
@@ -702,7 +711,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="SMS Loopback Mode"
+                                android:text="@string/sms_loopback_title"
                                 android:textSize="14sp"
                                 android:textColor="@android:color/holo_red_light"
                                 android:clickable="true"
@@ -711,7 +720,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Bypassa SMS: invio diretto interno a NooK"
+                                android:text="@string/sms_loopback_summary"
                                 android:textSize="11sp"
                                 android:textColor="?android:attr/textColorSecondary"
                                 android:layout_marginTop="2dp"/>
@@ -862,22 +871,6 @@
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-
-        <!-- DEBUG QUEUE BUTTON DEBUG - Also shows decryption failures -->
-        <ImageButton
-            android:id="@+id/debug_failure_button"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:src="@android:drawable/ic_menu_info_details"
-            android:background="@color/light_green"
-            android:visibility="gone"
-            android:layout_gravity="bottom|end"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:padding="12dp"
-            android:elevation="4dp"
-            android:contentDescription="Debug Info"
-            android:tooltipText="View debug information (decryption failures, queue status)" />
 
         <!-- Footer Info -->
         <TextView

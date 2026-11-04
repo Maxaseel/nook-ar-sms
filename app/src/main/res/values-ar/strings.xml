@@ -218,7 +218,6 @@
 
 اتصل بالمطوّر إذا استمر الخطأ</string>
     <string name="deactivated">معطّل</string>
-    <string name="debug_failures_hint">الأخطاء والتعطلات الأخيرة لأغراض التصحيح. المس لعرض التفاصيل.</string>
     <string name="decoded_message_placeholder">رسالة مفكوكة التشفير</string>
     <string name="decoded_message_preview_placeholder">نص الرسالة المفكوكة التشفير…</string>
     <string name="decrypted_on_other_side">✓ فُكّ تشفيرها لدى الطرف الآخر</string>
@@ -861,4 +860,23 @@ C) الحافظة، التي تشارك النصوص مع التطبيق الح�
     <string name="yes_reset">نعم، استعد</string>
     <string name="zoom_in">تكبير +</string>
     <string name="zoom_out">تصغير -</string>
+    <string name="sms_loopback_title">وضع محاكاة رسائل SMS</string>
+    <string name="sms_loopback_summary">تجاوز إرسال SMS: توجيه داخلي مباشر إلى NooK</string>
+    <string name="pattern_setup_button">إعداد نمط إلغاء القفل</string>
+    <string name="pattern_lock_description">ارسم نمطًا بربط أربع نقاط على الأقل</string>
+    <string name="pattern_setup_title">إعداد نمط إلغاء القفل</string>
+    <string name="pattern_setup_message">ارسم نمطًا بربط أربع نقاط على الأقل.</string>
+    <string name="pattern_setup_confirm">أعد رسم النمط لتأكيده.</string>
+    <string name="pattern_setup_too_short">اربط أربع نقاط على الأقل.</string>
+    <string name="pattern_setup_mismatch">النمطان غير متطابقين. حاول مرة أخرى.</string>
+    <string name="pattern_setup_saved">تم حفظ نمط إلغاء القفل.</string>
+    <string name="pattern_unlock_button">النمط</string>
+    <string name="fingerprint_unlock_button">بصمة الإصبع</string>
+    <string name="fingerprint_prompt_title">إلغاء قفل NooK</string>
+    <string name="fingerprint_prompt_subtitle">تحقّق من بصمتك للمتابعة.</string>
+    <string name="password_unlock_button">كلمة المرور</string>
+    <string name="sms_loopback_enabled_message">🔁 وضع محاكاة SMS مفعّل؛ لن تُرسل الرسائل عبر شبكة SMS
+🔴 تم تفعيل المؤشرات الحمراء</string>
+    <string name="sms_loopback_disabled_message">📱 وضع محاكاة SMS معطّل؛ الإرسال العادي عبر SMS
+⚫ تمت استعادة ألوان المؤشرات</string>
 </resources>

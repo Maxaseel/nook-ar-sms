@@ -529,7 +529,6 @@
     <string name="sending_sms">Sending SMS...</string>
     <string name="error_encrypting_password">Error encrypting password in memory</string>
     <string name="menu_resend_msg">Re-send message</string>
-    <string name="debug_failures_hint">Recent errors and crashes for debugging. Tap for details.</string>
     <!-- Receipt status messages -->
     <string name="decrypted_on_other_side">✓ Decrypted on other side</string>
     <string name="decryption_failed_on_other_side">✗ Decryption failed on other side</string>
@@ -570,4 +569,23 @@
     <string name="location_error">Error getting location. Please try again.</string>
     <string name="location_timeout">Location request timed out. Please try again.</string>
     <string name="location_sent">Location sent: %.4f, %.4f</string>
+    <string name="sms_loopback_title">SMS Loopback Mode</string>
+    <string name="sms_loopback_summary">Bypass SMS: route messages directly inside NooK</string>
+    <string name="pattern_setup_button">Set unlock pattern</string>
+    <string name="pattern_lock_description">Draw a pattern by connecting at least four dots</string>
+    <string name="pattern_setup_title">Set unlock pattern</string>
+    <string name="pattern_setup_message">Draw a pattern by connecting at least four dots.</string>
+    <string name="pattern_setup_confirm">Draw the pattern again to confirm it.</string>
+    <string name="pattern_setup_too_short">Connect at least four dots.</string>
+    <string name="pattern_setup_mismatch">Patterns do not match. Try again.</string>
+    <string name="pattern_setup_saved">Unlock pattern saved.</string>
+    <string name="pattern_unlock_button">Pattern</string>
+    <string name="fingerprint_unlock_button">Fingerprint</string>
+    <string name="fingerprint_prompt_title">Unlock NooK</string>
+    <string name="fingerprint_prompt_subtitle">Verify your fingerprint to continue.</string>
+    <string name="password_unlock_button">Password</string>
+    <string name="sms_loopback_enabled_message">🔁 SMS Loopback ACTIVE - Messages will not be sent via SMS
+🔴 Red bars enabled</string>
+    <string name="sms_loopback_disabled_message">📱 SMS Loopback INACTIVE - Normal SMS sending
+⚫ Normal bars restored</string>
 </resources>

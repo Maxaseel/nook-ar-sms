@@ -6,6 +6,7 @@ import android.app.AlarmManager
 import android.app.BackgroundServiceStartNotAllowedException
 import android.app.Dialog
 import android.app.PendingIntent
+import android.view.ViewGroup
 import android.content.ActivityNotFoundException
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -35,7 +36,6 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
-import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.ProgressBar
@@ -48,6 +48,8 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.biometric.BiometricManager
+import androidx.biometric.BiometricPrompt
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
@@ -60,7 +62,6 @@ import solutions.semweb.nook.chat.ChatConversationAdapter
 import solutions.semweb.nook.chat.ChatManager
 import solutions.semweb.nook.contacts.TrustedContactsActivity
 import solutions.semweb.nook.crypto.CryptoManager
-import solutions.semweb.nook.crypto.DecryptionFailureMonitor
 import solutions.semweb.nook.crypto.EncryptionMapper
 import solutions.semweb.nook.data.database.DatabaseActor
 import solutions.semweb.nook.keyboards.KeyboardManagementActivity
@@ -94,6 +95,7 @@ class MainActivity : AppCompatActivity(), MainActivitySoundPicker {
     private var isShaVerificationComplete = false
     private var shaVerificationReceiver: BroadcastReceiver? = null
     private lateinit var appProtectionToggle: Switch
+    private lateinit var patternSetupButton: Button
     private lateinit var pureSmsToggle: Switch
     private lateinit var keyboardSafetyManager: KeyboardSafetyManager
     private lateinit var prefs: SharedPreferencesManager
@@ -549,10 +551,6 @@ class MainActivity : AppCompatActivity(), MainActivitySoundPicker {
             // 14. SIMPLE POLLING - check every second
             startPollingForDatabaseReady()
 
-            // 15. debug decryption failures
-            if (BuildConfig.DEBUG)
-                addDebugFailuresButton()
-
             // Tell SHA manager that app initialization is complete
             // shaVerificationManager.onAppInitialized()
 
@@ -697,30 +695,6 @@ class MainActivity : AppCompatActivity(), MainActivitySoundPicker {
             LogUtils.e("MAIN", "✅ All permissions already granted")
         }
     }
-
-    private fun addDebugQueueButton() {
-        try {
-            // Only show in debug builds
-            if (!BuildConfig.DEBUG) return
-
-            // Find the existing ImageButton from XML
-            val debugButton = findViewById<ImageButton>(R.id.debug_failure_button)
-
-            if (debugButton != null) {
-                // Make it visible and set up click listener
-                debugButton.visibility = View.VISIBLE
-                debugButton.setOnClickListener {
-                    utils.showSMSQueueStatus()
-                }
-                LogUtils.e("MAIN", "✅ Debug queue button configured")
-            } else {
-                LogUtils.e("MAIN", "❌ Could not find debug queue button in layout")
-            }
-        } catch (e: Exception) {
-            LogUtils.e("MAIN", "❌ Failed to configure debug button", e)
-        }
-    }
-
 
     private fun setupCompleteUI() {
         try {
@@ -904,10 +878,10 @@ class MainActivity : AppCompatActivity(), MainActivitySoundPicker {
 
                     updateSystemBarsForSmsLoopback(isChecked)
 
-                    Toast.makeText(this,
-                        if (isChecked) "🔁 SMS Loopback ATTIVO - I messaggi non verranno inviati via SMS\n🔴 Barre rosse attivate"
-                        else "📱 SMS Loopback DISATTIVO - Invio SMS normale\n⚫ Barre normali ripristinate",
-                        Toast.LENGTH_LONG).show()
+                    showToast(getString(if (isChecked)
+                        R.string.sms_loopback_enabled_message
+                    else
+                        R.string.sms_loopback_disabled_message))
                 }
 
                 smsLoopbackContainer.setOnClickListener {
@@ -918,8 +892,6 @@ class MainActivity : AppCompatActivity(), MainActivitySoundPicker {
             // Make the toggle labels clickable
             setupToggleLabelClickListeners()
 
-            // Add a debug queue button (not in release apks)
-            addDebugQueueButton()
 
             LogUtils.e("MAIN", "✅ Spinners and toggles setup complete")
 
@@ -2108,10 +2080,71 @@ class MainActivity : AppCompatActivity(), MainActivitySoundPicker {
         }
     }
 
+    private fun showSetAppProtectionPatternDialog() {
+        val container = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+            setPadding(24, 16, 24, 8)
+        }
+        val status = TextView(this).apply {
+            text = getString(R.string.pattern_setup_message)
+            textSize = 16f
+        }
+        val patternView = PatternLockView(this).apply {
+            layoutParams = LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                (resources.displayMetrics.density * 260).toInt()
+            )
+        }
+        container.addView(status)
+        container.addView(patternView)
+        var firstPattern: String? = null
+        var currentPattern: String? = null
+        patternView.onPatternCompleted = { pattern -> currentPattern = pattern }
+
+        val dialog = AlertDialog.Builder(this)
+            .setTitle(getString(R.string.pattern_setup_title))
+            .setView(container)
+            .setPositiveButton(getString(R.string.set), null)
+            .setNegativeButton(getString(R.string.cancel), null)
+            .create()
+        dialog.setOnShowListener {
+            dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
+                val pattern = currentPattern
+                if (pattern == null) {
+                    status.text = getString(R.string.pattern_setup_too_short)
+                    return@setOnClickListener
+                }
+                if (firstPattern == null) {
+                    firstPattern = pattern
+                    currentPattern = null
+                    patternView.clearPattern()
+                    status.text = getString(R.string.pattern_setup_confirm)
+                } else if (firstPattern == pattern) {
+                    try {
+                        prefs.appProtectionPattern = CryptoManager.encryptSimplePassword(this, pattern)
+                        showToast(getString(R.string.pattern_setup_saved))
+                        dialog.dismiss()
+                    } catch (e: Exception) {
+                        LogUtils.e("MAIN", "Failed to save app protection pattern", e)
+                        status.text = getString(R.string.error_generic)
+                    }
+                } else {
+                    firstPattern = null
+                    currentPattern = null
+                    patternView.clearPattern()
+                    status.text = getString(R.string.pattern_setup_mismatch)
+                }
+            }
+        }
+        dialog.show()
+    }
+
     private fun removeAppProtection() {
         // Simply disable protection with a Toast confirmation
         prefs.appProtectionEnabled = false
         prefs.appProtectionPassword = ""
+        prefs.appProtectionPattern = ""
+        if (this::patternSetupButton.isInitialized) patternSetupButton.visibility = View.GONE
         showToast(getString(R.string.app_protection_disabled))
         LogUtils.e("MAIN", "✅ APP protection disabled")
     }
@@ -2120,31 +2153,64 @@ class MainActivity : AppCompatActivity(), MainActivitySoundPicker {
     fun showPasswordPromptDialog() {
         if (!prefs.appProtectionEnabled) return
 
-        // Control tries
         if (appLockManager.isLockedDueToFailedAttempts()) {
             showToast(getString(R.string.stop_retry), true)
             return
         }
 
         val dialogView = layoutInflater.inflate(R.layout.dialog_app_unlock, null)
-
         val passwordInput = dialogView.findViewById<EditText>(R.id.password_input)
+        val passwordCard = dialogView.findViewById<View>(R.id.password_input_card)
         val unlockButton = dialogView.findViewById<Button>(R.id.unlock_button)
         val exitButton = dialogView.findViewById<Button>(R.id.exit_button)
+        val patternButton = dialogView.findViewById<Button>(R.id.pattern_unlock_button)
+        val fingerprintButton = dialogView.findViewById<Button>(R.id.fingerprint_unlock_button)
+        val patternView = dialogView.findViewById<PatternLockView>(R.id.unlock_pattern_view)
+        val messageText = dialogView.findViewById<TextView>(R.id.message_text)
 
-        //GO keyboard
         passwordInput.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_DONE || actionId == EditorInfo.IME_ACTION_GO) {
                 unlockButton.performClick()
                 true
-            }
-            false
+            } else false
         }
 
         val dialog = Dialog(this, android.R.style.Theme_Black_NoTitleBar_Fullscreen)
         dialog.setContentView(dialogView)
         dialog.setCancelable(false)
         dialog.show()
+
+        if (prefs.appProtectionPattern.isNotEmpty()) {
+            patternButton.visibility = View.VISIBLE
+            patternButton.setOnClickListener {
+                val showPattern = patternView.visibility != View.VISIBLE
+                patternView.visibility = if (showPattern) View.VISIBLE else View.GONE
+                passwordCard.visibility = if (showPattern) View.GONE else View.VISIBLE
+                unlockButton.visibility = if (showPattern) View.GONE else View.VISIBLE
+                patternButton.text = getString(if (showPattern) R.string.password_unlock_button else R.string.pattern_unlock_button)
+                messageText.text = getString(if (showPattern) R.string.pattern_lock_description else R.string.app_protection_enter_password)
+            }
+            patternView.onPatternCompleted = { pattern ->
+                try {
+                    val stored = CryptoManager.decryptSimplePassword(this, prefs.appProtectionPattern)
+                    if (pattern == stored) {
+                        unlockWithStoredPassword(dialog)
+                    } else {
+                        recordUnlockFailure(dialog)
+                        patternView.clearPattern()
+                    }
+                } catch (e: Exception) {
+                    LogUtils.e("MAIN", "Pattern verification failed", e)
+                    recordUnlockFailure(dialog)
+                    patternView.clearPattern()
+                }
+            }
+        }
+
+        if (BiometricManager.from(this).canAuthenticate(BiometricManager.Authenticators.BIOMETRIC_WEAK) == BiometricManager.BIOMETRIC_SUCCESS) {
+            fingerprintButton.visibility = View.VISIBLE
+            fingerprintButton.setOnClickListener { showBiometricPrompt(dialog) }
+        }
 
         exitButton.setOnClickListener {
             stopForegroundService()
@@ -2154,33 +2220,72 @@ class MainActivity : AppCompatActivity(), MainActivitySoundPicker {
         }
 
         unlockButton.setOnClickListener {
-            // disable asap - avoid double clicks
             unlockButton.isEnabled = false
-
-            val enteredPassword = passwordInput.text.toString()
-
-            if (verifyAppProtectionPassword(enteredPassword)) {
+            if (verifyAppProtectionPassword(passwordInput.text.toString())) {
                 appLockManager.resetFailedAttempts()
                 dialog.dismiss()
                 recreate()
             } else {
-                appLockManager.recordFailedAttempt()
-
-                if (appLockManager.isLockedDueToFailedAttempts()) {
-                    dialog.dismiss()
-                    showToast(getString(R.string.stop_retry) , true)
-                    finishAffinity()
-                } else {
-                    passwordInput.text.clear()
-                    passwordInput.requestFocus()
-                    // 🔥 re-enable only if error and non blocked
-                    unlockButton.isEnabled = true
-                }
+                recordUnlockFailure(dialog)
+                passwordInput.text.clear()
+                passwordInput.requestFocus()
+                unlockButton.isEnabled = true
             }
         }
     }
 
+    private fun showBiometricPrompt(unlockDialog: Dialog) {
+        val prompt = BiometricPrompt(
+            this,
+            ContextCompat.getMainExecutor(this),
+            object : BiometricPrompt.AuthenticationCallback() {
+                override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
+                    super.onAuthenticationSucceeded(result)
+                    unlockWithStoredPassword(unlockDialog)
+                }
 
+                override fun onAuthenticationError(errorCode: Int, errString: CharSequence) {
+                    super.onAuthenticationError(errorCode, errString)
+                    if (errorCode != BiometricPrompt.ERROR_NEGATIVE_BUTTON &&
+                        errorCode != BiometricPrompt.ERROR_USER_CANCELED) {
+                        showToast(errString.toString(), true)
+                    }
+                }
+            }
+        )
+        val info = BiometricPrompt.PromptInfo.Builder()
+            .setTitle(getString(R.string.fingerprint_prompt_title))
+            .setSubtitle(getString(R.string.fingerprint_prompt_subtitle))
+            .setAllowedAuthenticators(BiometricManager.Authenticators.BIOMETRIC_WEAK)
+            .setNegativeButtonText(getString(R.string.cancel))
+            .build()
+        prompt.authenticate(info)
+    }
+
+    private fun unlockWithStoredPassword(dialog: Dialog) {
+        try {
+            val password = CryptoManager.decryptSimplePassword(this, prefs.appProtectionPassword)
+            if (verifyAppProtectionPassword(password)) {
+                appLockManager.resetFailedAttempts()
+                dialog.dismiss()
+                recreate()
+            } else {
+                recordUnlockFailure(dialog)
+            }
+        } catch (e: Exception) {
+            LogUtils.e("MAIN", "Unable to complete alternate unlock", e)
+            recordUnlockFailure(dialog)
+        }
+    }
+
+    private fun recordUnlockFailure(dialog: Dialog) {
+        appLockManager.recordFailedAttempt()
+        if (appLockManager.isLockedDueToFailedAttempts()) {
+            dialog.dismiss()
+            showToast(getString(R.string.stop_retry), true)
+            finishAffinity()
+        }
+    }
 
     @RequiresApi(Build.VERSION_CODES.S)
     private fun verifyAppProtectionPassword(inputPassword: String): Boolean {
@@ -2239,14 +2344,19 @@ class MainActivity : AppCompatActivity(), MainActivitySoundPicker {
     private fun setupAppProtectionToggle() {
         try {
             appProtectionToggle = findViewById(R.id.app_protection_toggle)
+            patternSetupButton = findViewById(R.id.pattern_setup_button)
 
             appProtectionToggle.isChecked = prefs.appProtectionEnabled
+            patternSetupButton.visibility = if (prefs.appProtectionEnabled) View.VISIBLE else View.GONE
+            patternSetupButton.setOnClickListener { showSetAppProtectionPatternDialog() }
 
             appProtectionToggle.setOnCheckedChangeListener { _, isChecked ->
                 if (isChecked) {
+                    patternSetupButton.visibility = View.VISIBLE
                     // Normal flow from toggle - show toast
                     showSetAppProtectionPasswordDialog()
                 } else {
+                    patternSetupButton.visibility = View.GONE
                     removeAppProtection()
                 }
             }
@@ -3931,56 +4041,6 @@ class MainActivity : AppCompatActivity(), MainActivitySoundPicker {
 
 
     // Add this method to MainActivity.kt
-
-    private fun showDecryptionFailures() {
-        if (!BuildConfig.DEBUG) return
-
-        val failures = DecryptionFailureMonitor.getFailures()
-
-        if (failures.isEmpty()) {
-            AlertDialog.Builder(this)
-                .setTitle("No Decryption Failures")
-                .setMessage("All decryptions successful so far.")
-                .setPositiveButton("OK", null)
-                .show()
-            return
-        }
-
-        val failureText = failures.joinToString("\n\n---\n\n") { failure ->
-            """
-        ${java.text.SimpleDateFormat("HH:mm:ss.SSS").format(failure.timestamp)}
-        Entity: ${failure.entityType}
-        Field: ${failure.fieldName}
-        Error: ${failure.exceptionMessage}
-        """.trimIndent()
-        }
-
-        AlertDialog.Builder(this)
-            .setTitle("Decryption Failures (${failures.size})")
-            .setMessage(failureText)
-            .setPositiveButton("OK", null)
-            .setNeutralButton("Clear") { _, _ ->
-                DecryptionFailureMonitor.clearFailures()
-            }
-            .show()
-    }
-
-    // Add a debug button or menu item to call this
-    private fun addDebugFailuresButton() {
-        try {
-            if (!BuildConfig.DEBUG) return
-
-            val debugButton = findViewById<ImageButton>(R.id.debug_failure_button)
-            if (debugButton != null) {
-                debugButton.visibility = View.VISIBLE
-                debugButton.setOnClickListener {
-                    showDecryptionFailures()
-                }
-            }
-        } catch (e: Exception) {
-            LogUtils.e("MAIN", "Failed to add debug failures button", e)
-        }
-    }
 
     private fun updateSystemBarsForSmsLoopback(isLoopbackMode: Boolean) {
         if (!BuildConfig.DEBUG) return  // Only in DEBUG mode
