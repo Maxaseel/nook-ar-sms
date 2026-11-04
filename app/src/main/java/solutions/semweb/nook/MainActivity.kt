@@ -510,7 +510,6 @@ class MainActivity : AppCompatActivity(), MainActivitySoundPicker {
 
             setupSpinnersAndToggles()
             setupButtons()
-            setVersionFooter()
             setupSettings()
             setupToggleLabelClickListeners()
             setupNotificationSoundPreferences()
@@ -1340,30 +1339,6 @@ class MainActivity : AppCompatActivity(), MainActivitySoundPicker {
         loadChatConversations()
         //utils.openChatForContact(chatManager, prefs, phoneNumber) // do not switch directly to chat, set it first
         showToast(getString(R.string.sms_chat_created_with_contact, contactName ?: phoneNumber))
-    }
-
-    private fun setVersionFooter() {
-        try {
-            val versionFooter: TextView? = findViewById(R.id.version_footer)
-
-            if (versionFooter == null) {
-                LogUtils.e("MAIN", "❌ version_footer TextView not found!")
-                return
-            }
-
-            val tap2open = getString(R.string.tap2open)
-            val debuginfo = if (BuildConfig.DEBUG) "D" else ""
-            versionFooter.text = "NooK ${Constants.VERSION}${debuginfo} - secure SMS ${Constants.COPYRIGHT} [${tap2open}]"
-            versionFooter.setOnClickListener {
-                openUrlInBrowser(Constants.VISITME)
-            }
-            versionFooter.isClickable = true
-            versionFooter.setTextColor(ContextCompat.getColor(this, R.color.intensive_green))
-
-            LogUtils.e("MAIN", "✅ Version footer set")
-        } catch (e: Exception) {
-            LogUtils.e("MAIN", "❌ Error in setVersionFooter", e)
-        }
     }
 
     private fun openUrlInBrowser(url: String) {

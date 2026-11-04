@@ -8,7 +8,7 @@ object Constants {
     const val VERSION_MAJOR = 1
     const val VERSION_MINOR = 7
     const val VERSION_PATCH = 8 // Sending own location to partner
-    const val VERSION_CODE = 297
+    const val VERSION_CODE = 298
 
     const val FILE_PICKER_REQUEST_CODE = 3001
 

@@ -89,6 +89,8 @@ android {
     // ============================================================
     // SINGLE KEYSTORE FOR ALL BUILDS (Debug + Release)
     // ============================================================
+    val unsignedReleaseBuild = project.findProperty("unsignedRelease")?.toString()?.toBoolean() == true
+
     signingConfigs {
         // 🔐 MASTER KEYSTORE - Used for ALL builds (debug, release, testing)
         // This file is located OUTSIDE version control for security
@@ -116,7 +118,7 @@ android {
                             nook.key.password=your-key-password
                         """.trimIndent()
 
-                    if (gradle.startParameter.taskRequests.any { it.args.any { arg ->
+                    if (!unsignedReleaseBuild && gradle.startParameter.taskRequests.any { it.args.any { arg ->
                             arg.contains("assemble") || arg.contains("build")
                         }}) {
                         throw GradleException(error)
@@ -190,8 +192,8 @@ android {
                 "proguard-rules.pro"
             )
 
-            // Use the SAME master keystore for release builds
-            signingConfig = signingConfigs.getByName("master")
+            // Unsigned output is available only when explicitly requested for public distribution.
+            signingConfig = if (unsignedReleaseBuild) null else signingConfigs.getByName("master")
 
             // 🔐 RELEASE URLs (these will be os-env-injected at build time, not hardcoded in Constants.kt)
             buildConfigField("String", "GITHUB_SHA256_URL", "\"https://raw.githubusercontent.com/redskate/nook/refs/heads/master/app/sha256\"")

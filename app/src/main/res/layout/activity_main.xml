@@ -872,18 +872,5 @@
         </com.google.android.material.card.MaterialCardView>
 
 
-        <!-- Footer Info -->
-        <TextView
-            android:id="@+id/version_footer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/app_footer"
-            android:textSize="10sp"
-            android:textColor="?android:attr/textColorSecondary"
-            android:gravity="center"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="20dp"
-            tools:ignore="SmallSp" />
-
     </LinearLayout>
 </ScrollView>
