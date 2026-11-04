@@ -8,9 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import solutions.semweb.nook.DecodedMessage
 import solutions.semweb.nook.R
-import java.text.SimpleDateFormat
 import java.util.Date
-import java.util.Locale
 
 class ChatDecodedHistoryAdapter(
     private var messages: List<DecodedMessage>,
@@ -32,10 +30,9 @@ class ChatDecodedHistoryAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val message = messages[position]
-        val dateFormat = SimpleDateFormat("dd/MM HH:mm", Locale.getDefault())
 
         holder.senderText.text = message.senderName ?: message.sender
-        holder.timeText.text = dateFormat.format(Date(message.timestamp))
+        holder.timeText.text = ChatDateTimeFormatter.formatDateTime(Date(message.timestamp))
         val preview = if (message.text.length > 50) {
             message.text.substring(0, 50) + "..."
         } else {
