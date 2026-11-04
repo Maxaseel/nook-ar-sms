@@ -20,6 +20,7 @@ import solutions.semweb.nook.Constants
 import solutions.semweb.nook.R
 import solutions.semweb.nook.SharedPreferencesManager
 import java.util.Date
+import java.util.Calendar
 import java.util.regex.Pattern
 
 class ChatMessagesAdapter(
@@ -46,6 +47,7 @@ class ChatMessagesAdapter(
 
 
     class MessageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val dateSeparator: TextView = itemView.findViewById(R.id.message_date_separator)
         val incomingMessageLayout: View = itemView.findViewById(R.id.enc_incoming_message_layout)
         val plaintextIncomingMessageLayout: View = itemView.findViewById(R.id.plaintext_incoming_message_layout)
         val encOutgoingMessageLayout: View = itemView.findViewById(R.id.enc_outgoing_message_layout)
@@ -210,6 +212,12 @@ class ChatMessagesAdapter(
         }
 
         val message = messages[messageIndex]
+        val previousMessage = messages.getOrNull(messageIndex - 1)
+        val startsNewDay = previousMessage == null || !isSameDay(previousMessage.timestamp, message.timestamp)
+        holder.dateSeparator.visibility = if (startsNewDay) View.VISIBLE else View.GONE
+        if (startsNewDay) {
+            holder.dateSeparator.text = ChatDateTimeFormatter.formatDateSeparator(Date(message.timestamp))
+        }
 
         // Encryption indicator from metadata
         val encryptionIndicator = message.metadata?.get("e_ind") ?: ""
@@ -661,5 +669,12 @@ class ChatMessagesAdapter(
     private fun formatShortTime(timestamp: Long): String {
         val date = Date(timestamp)
         return ChatDateTimeFormatter.formatTime(date)
+    }
+
+    private fun isSameDay(firstTimestamp: Long, secondTimestamp: Long): Boolean {
+        val first = Calendar.getInstance().apply { timeInMillis = firstTimestamp }
+        val second = Calendar.getInstance().apply { timeInMillis = secondTimestamp }
+        return first.get(Calendar.YEAR) == second.get(Calendar.YEAR) &&
+                first.get(Calendar.DAY_OF_YEAR) == second.get(Calendar.DAY_OF_YEAR)
     }
 }
